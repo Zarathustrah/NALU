@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HomePage = () => <h1>Home Page</h1>
+const HomePage = () => <h1>I am dumb as fuck/h1>
 
 
 
