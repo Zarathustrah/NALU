@@ -1,13 +1,18 @@
 {
-  "name": "frontend",
+  "name": "seiproject3",
   "version": "0.1.0",
-  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node db/seeds.js"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "bulma": "^0.9.0",
-    "eslint-plugin-react": "^7.20.6",
     "express": "^4.17.1",
-    "http-proxy-middleware": "^1.0.5",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.0",
     "mongoose-unique-validator": "^2.0.3",
