@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "bcrypt": "^5.0.0",
+<<<<<<< HEAD
+=======
+    "bulma": "^0.9.0",
+>>>>>>> development
     "eslint-plugin-react": "^7.20.6",
     "express": "^4.17.1",
     "http-proxy-middleware": "^1.0.5",
