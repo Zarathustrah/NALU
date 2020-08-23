@@ -19,11 +19,12 @@ import UserShow from './components/users/UserShow'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import ErrorPage from './components/common/ErrorPage'
-
+import Navbar from './components/common/Navbar'
 
 
 const App = () => (
   <BrowserRouter>
+   <Navbar />
    <Switch>
      <Route exact path="/" component={Home} />
     
