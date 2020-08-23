@@ -1,11 +1,14 @@
-import React from'react'
+import React from 'react'
+// import { getAllSpots } from '../../lib/api'
 import axios from 'axios'
-//import { getAllSpots } from '../../lib/api'
-
-
 class SpotIndex extends React.Component {
-  state = { spots: [] }
-
+  state = { 
+    spots: null,
+    search: '',
+    hideMap: true,
+    hideList: true,
+    hideGrid: false  
+  }
   async componentDidMount() {
     try {
       const res = await axios.get('/api/surfspots')
@@ -15,13 +18,9 @@ class SpotIndex extends React.Component {
       console.log(err)
     }
   }
-
   render() {
     console.log(this.state)
     return <h1>Spots Index Page</h1>
   }
-
 }
-
-
 export default SpotIndex
