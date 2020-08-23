@@ -1,6 +1,7 @@
 import React from 'react'
 // import { getAllSpots } from '../../lib/api'
 import axios from 'axios'
+
 class SpotIndex extends React.Component {
   state = { 
     spots: null,
@@ -12,7 +13,7 @@ class SpotIndex extends React.Component {
   async componentDidMount() {
     try {
       const res = await axios.get('/api/surfspots')
-      //const res = await getAllSpots
+      // const res = await getAllSpots()
       this.setState({ spots: res.data })
     } catch (err) {
       console.log(err)
