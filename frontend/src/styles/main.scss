@@ -1,0 +1,43 @@
+.card {
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+}
+
+.card-header-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 30px;
+}
+
+.card-content {
+  margin-top: auto;
+}
+
+.logo-emoji {
+  margin: 0 10px;
+}
+
+.form-link {
+  margin-left: 3px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: #c7cecf;
+}
+
+span.logout {
+  cursor: pointer;
+}
+
+section.section {
+  min-height: calc(100vh - 11.25rem);
+}
+
+$yellow: #369fb8;
+$footer-background-color: #363636;
+$footer-padding: 2rem 1.5rem;
+$card-header-background-color: $yellow;
+$box-padding: 1rem;
+$font-family: 'Nunito', sans-serif;
+
+@import '~bulma/bulma.sass';
