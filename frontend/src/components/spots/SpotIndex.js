@@ -1,9 +1,7 @@
 import React from 'react'
 // import { getAllSpots } from '../../lib/api'
 import axios from 'axios'
-
 import SpotCard from './SpotCard'
-
 class SpotIndex extends React.Component {
   state = { 
     spots: null,
@@ -12,7 +10,6 @@ class SpotIndex extends React.Component {
     hideList: true,
     hideGrid: false  
   }
-  
   async componentDidMount() {
     try {
       const res = await axios.get('/api/surfspots')
@@ -22,11 +19,9 @@ class SpotIndex extends React.Component {
       console.log(err)
     }
   }
-
   handleSearch = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
-
   filteredSpots = () => {
     const { spots, search } = this.state
     const searchBar = new RegExp(search, 'i')
@@ -34,7 +29,6 @@ class SpotIndex extends React.Component {
       return searchBar.test(spot.country) || searchBar.test(spot.continent) || searchBar.test(spot.spot) || searchBar.test(spot.difficulty) || searchBar.test(spot.season) || searchBar.test(spot.waveType)
     })
   }
-
   handleDisplayCard = e => {
     e.preventDefault()
     if (e.currentTarget.name === 'showList') {
@@ -45,10 +39,8 @@ class SpotIndex extends React.Component {
       this.setState({ hideMap: false, hideList: true, hideGrid: true })
     }
   }
-
   render() {
     if (!this.state.spots) return null
-
     return (
       <div className="spotsCollection">
         <div className="hero is-medium">
@@ -66,7 +58,6 @@ class SpotIndex extends React.Component {
             />
           </div>
         </div>
-        
         <div className="view-change buttons field has-addons">
           <p className="control list-view-button">
             <button
@@ -99,7 +90,6 @@ class SpotIndex extends React.Component {
             </button>
           </p>
         </div>
-
         <section className="section">
           <div className="container">
             <div className="columns is-multiline">
@@ -113,5 +103,4 @@ class SpotIndex extends React.Component {
     )
   }
 }
-
 export default SpotIndex

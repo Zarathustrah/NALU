@@ -1,7 +1,11 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Notification from 'react-notify-toast'
 
 import Home from './components/common/Home'
+import Navbar from './components/common/Navbar'
+import Register from './components/auth/Register'
+import Login from './components/auth/Login'
 
 import SpotIndex from './components/spots/SpotIndex'
 import SpotShow from './components/spots/SpotShow'
@@ -16,36 +20,35 @@ import GroupEdit from './components/groups/GroupEdit'
 import UserIndex from './components/users/UserIndex'
 import UserShow from './components/users/UserShow'
 
-import Register from './components/auth/Register'
-import Login from './components/auth/Login'
 import ErrorPage from './components/common/ErrorPage'
-import Navbar from './components/common/Navbar'
 
 
 const App = () => (
   <BrowserRouter>
-   <Navbar />
-   <Switch>
-     <Route exact path="/" component={Home} />
-    
-      <Route path="/spots/:id/edit" component={SpotEdit} />
-      <Route path="/spots/new" component={SpotNew} />
-      <Route path="/spots/:id" component={SpotShow} />
-      <Route path="/spots" component={SpotIndex} />
+    <main>
+      <Notification />
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+      
+        <Route path="/surfspots/:id/edit" component={SpotEdit} />
+        <Route path="/surfspots/new" component={SpotNew} />
+        <Route path="/surfspots/:id" component={SpotShow} />
+        <Route path="/surfspots" component={SpotIndex} />
 
-      <Route path="/groups/:id/edit" component={GroupEdit} /> 
-      <Route path="/groups/new" component={GroupNew} /> 
-      <Route path="/groups/:id" component={GroupShow} /> 
-      <Route path="/groups" component={GroupIndex} /> 
+        <Route path="/groups/:id/edit" component={GroupEdit} /> 
+        <Route path="/groups/new" component={GroupNew} /> 
+        <Route path="/groups/:id" component={GroupShow} /> 
+        <Route path="/groups" component={GroupIndex} /> 
 
-      <Route path="/users/:id" component={UserShow} />
-      <Route path="/users" component={UserIndex} />
+        <Route path="/users/:id" component={UserShow} />
+        <Route path="/users" component={UserIndex} />
 
-      <Route path="/register" component={Register} />
-      <Route path="/login" component={Login} />
-      <Route path="/*" component={ErrorPage} />
-
-  </Switch>
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route path="/*" component={ErrorPage} />
+      </Switch>
+    </main>
   </BrowserRouter>
 )
 

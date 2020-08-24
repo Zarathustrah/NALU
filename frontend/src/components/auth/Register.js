@@ -5,6 +5,10 @@ import { popupNotification } from '../../lib/notification'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import HeroBanner from '../common/HeroBanner'
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 class Register extends React.Component {
   state = {
     data: {
@@ -20,8 +24,10 @@ class Register extends React.Component {
     const errors = { ...this.state.errors, [e.target.name]: '' }
     this.setState({ data, errors })
   }
+
   handleSubmit = async e => {
     e.preventDefault()
+
     try {
       const res = await registerUser(this.state.data)
       console.log(res.data)
@@ -123,4 +129,5 @@ class Register extends React.Component {
     )
   }
 }
+
 export default Register
