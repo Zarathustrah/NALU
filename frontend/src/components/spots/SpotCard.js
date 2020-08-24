@@ -27,3 +27,5 @@ const SpotCard = ({ spot, country, image, waveType, difficulty, season, descript
 )
 
 export default SpotCard
+
+
