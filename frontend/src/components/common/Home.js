@@ -1,5 +1,26 @@
 import React from 'react'
 
-const Home = () => <h1>Home Page</h1>
+const Home = () => {
+  return (
 
-export default Home 
+    <section className='hero is-fullheight'>
+      <div className="hero-body">
+        <div className="container">
+          <h1 className='title'>N a l u</h1>
+          <div className="field is-grouped">
+            <p className="control is-expanded">
+              <input className="input"  type="text" placeholder="Find a repository"/>
+            </p>
+            <p className="control">
+              <button className="button is-info">
+                Search
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section >
+  )
+}
+
+export default Home
