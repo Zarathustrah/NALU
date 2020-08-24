@@ -1,31 +1,74 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { link } from 'react-router-dom'
+// import StarRatings from 'react-star-ratings'
+// import { showSingleSpot, deleteSpot } from '../../lib/api'
+import { showSingleSpot } from '../../lib/api'  //! Delete once other functionality is working
 
-const SpotCard = ({ spot, country, image, waveType, difficulty, season, description, _id }) => (
 
-    <Link to={`/spots/${_id}`} className="box">
-      <div className="column is-full SpotCard">
-        <div className="column">
-          <img src={image} alt={spot} className="column is-one-quarter is-mobile index-image"/>
-          <div className="column columns is-multiline">
-            <div className="column is-full">
-              <h4 className="card-header-title">{spot}, {country}</h4>
+class SpotShow extends React.Component {
+  state = {
+    rating: null,
+    spot: null
+  }
+  changeRating( newRating, name ) {
+    this.setState({
+      rating: newRating
+    })
+  }
+
+  async componentDidMount() {
+    const spotID = this.props.match.params.id
+    try {
+      const res = await showSingleSpot(spotID)
+      this.setState({ spot: res.data })
+    } catch (err) {
+      this.props.history.push('/notfound')
+    }
+  }
+
+  // handleDelete = async () => {
+  //   const spotID = this.props.match.params.id
+  //   try {
+  //     await deleteSpot(spotID)
+  //     this.props.history.push('/surfspots')
+  //   } catch (err) {
+  //     console.log(err.response.data)
+  //   }
+  // }
+
+  render() {
+    const { spot } = this.state
+
+    if(!spot) return null
+    return (
+
+      // <StarRatings
+      //   rating={this.state.rating}
+      //   starRatedColor="blue"
+      //   changeRating={this.changeRating}
+      //   numberOfStars={6}
+      //   name='rating'
+      // />
+
+      <div className="tile is-ancestor">
+        <div className="tile is-verticle is-full">
+          <div className="tile">
+            <div className="tile is-parent is-vertical">
+              <article className="tile is-child has-background-light">
+                <p className="title">{spot.spot}</p>
+                <p className="subtitle is-4">`{spot.region}, {spot.country}, {spot.country}</p>
+              </article>
+              <article className="tile is-child has-background-light">
+                <p className="subtitle is-5">
+
+                </p>
+              </article>
             </div>
-          </div>
-          <div className="card-image">
-          </div>
-          <div className="card-content">
-            <p className="">{waveType}</p>
-            <p className="">{difficulty}</p>
-            <p className="">{season}</p>
-            <p className="">{description}</p>
           </div>
         </div>
       </div>
-    </Link>
+    )
+  }
+}
 
-)
-
-export default SpotCard
-
-
+export default SpotShow

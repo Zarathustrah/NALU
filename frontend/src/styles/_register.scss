@@ -1,0 +1,24 @@
+.section.is-large{
+  height: 100vh;
+  background-image: url("../components/common/images/five.jpeg");
+  size: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5%;
+  opacity: 90%;
+
+}
+.register{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2%;
+ 
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  align-items: flex-start;  
+}
+
+.label{
+  text-align: 4px;
+}
