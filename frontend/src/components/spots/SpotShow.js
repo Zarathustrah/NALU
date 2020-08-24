@@ -3,6 +3,8 @@ import React from 'react'
 // import StarRatings from 'react-star-ratings'
 // import { showSingleSpot, deleteSpot } from '../../lib/api'
 import { showSingleSpot } from '../../lib/api'  //! Delete once other functionality is working
+
+
 class SpotShow extends React.Component {
   state = {
     rating: null,
@@ -13,6 +15,7 @@ class SpotShow extends React.Component {
       rating: newRating
     })
   }
+
   async componentDidMount() {
     const spotID = this.props.match.params.id
     try {
@@ -22,6 +25,7 @@ class SpotShow extends React.Component {
       this.props.history.push('/notfound')
     }
   }
+
   // handleDelete = async () => {
   //   const spotID = this.props.match.params.id
   //   try {
@@ -31,10 +35,13 @@ class SpotShow extends React.Component {
   //     console.log(err.response.data)
   //   }
   // }
+
   render() {
     const { spot } = this.state
+
     if(!spot) return null
     return (
+
       // <StarRatings
       //   rating={this.state.rating}
       //   starRatedColor="blue"
@@ -42,6 +49,7 @@ class SpotShow extends React.Component {
       //   numberOfStars={6}
       //   name='rating'
       // />
+
       <div className="tile is-ancestor">
         <div className="tile is-verticle is-full">
           <div className="tile">
@@ -52,6 +60,7 @@ class SpotShow extends React.Component {
               </article>
               <article className="tile is-child has-background-light">
                 <p className="subtitle is-5">
+
                 </p>
               </article>
             </div>
@@ -61,4 +70,5 @@ class SpotShow extends React.Component {
     )
   }
 }
+
 export default SpotShow
