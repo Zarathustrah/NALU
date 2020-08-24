@@ -4,9 +4,9 @@ const Home = () => {
   return (
 
     <section className='hero is-fullheight'>
-      <div className="hero-body">     
-	        <div className="container">
-          <h1 className='title'>Nalu</h1>
+      <div className="hero-body">
+        <div className="container">
+          <h1 className='title'>N a l u</h1>
           <div className="field is-grouped">
             <p className="control is-expanded">
               <input className="input"  type="text" placeholder="Find a repository"/>
@@ -17,12 +17,10 @@ const Home = () => {
               </button>
             </p>
           </div>
-         
         </div>
       </div>
     </section >
-
-   
   )
 }
+
 export default Home

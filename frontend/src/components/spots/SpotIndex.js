@@ -52,7 +52,7 @@ class SpotIndex extends React.Component {
     return (
       <div className="spotsCollection">
         <div className="hero is-medium">
-          <div className="hero-body ">
+          <div className="hero-body has-bg-img">
             <h1 className="title-logo has-text-centered">N A L U</h1>
           </div>
         </div>
