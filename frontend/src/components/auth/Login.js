@@ -1,67 +1,95 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { loginUser } from '../../lib/api'
+import { setToken } from '../../lib/auth'
+import { popupNotification } from '../../lib/notification'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
+import HeroBanner from '../common/HeroBanner'
+
 
 class Login extends React.Component {
   state = {
-    formData: {
+    data: {
       email: '',
       password: ''
+    },
+    error: ''
+  }
+
+  handleChange = e => {
+    const data = { ...this.state.data, [e.target.name]: e.target.value }
+    this.setState({ data, error: '' })
+  }
+
+  handleSubmit = async e => {
+    e.preventDefault()
+
+    try {
+      const res = await loginUser(this.state.data)
+      console.log(res.data)
+      setToken(res.data.token)
+      popupNotification(res.data.message)
+      this.props.history.push('/surfspots')
+    } catch (err) {
+      console.log(err)
+      this.setState({ error: 'Invalid Credentials' })
     }
   }
-  handleChange = event => {
-    const formData = { ...this.state.formData, [event.target.name]: event.target.value }
-    this.setState({ formData, error: false })
-  }
-  handleSubmit = event => {
-    event.preventDefault()
 
-    console.log('Submit the form', this.state.formData)
-  }
- 
   render() {
-    return(
-      <section className="section">
-      <div className="container">
-        <div className="columns">
-          <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter box">
-            <div className="field">
-              <label className="label">Email</label>
-              <div className="control">
-                <input
-                  className={`input ${this.state.error ? 'is-danger' : '' }`}
-                  placeholder="Email"
-                  name="email"
-                  onChange={this.handleChange}
-                  value={this.state.formData.email}
-                />
-              </div>
+    return (
+      <>
+        <HeroBanner text="Aloha" />
+        <section className="section">
+          <div className="container">
+            <div className="columns">
+              <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter box">
+                <div className="field">
+                  <label className="label">Email</label>
+                  <div className="control has-icons-left">
+                    <input
+                      className={`input ${this.state.error ? 'is-danger' : ''}`}
+                      name="email"
+                      placeholder="Email"
+                      onChange={this.handleChange}
+                    />
+                    <span className="icon is-small is-left">
+                      <FontAwesomeIcon icon={faEnvelope}/>
+                    </span>
+                  </div>
+                </div>
+                <div className="field">
+                  <label className="label">Password</label>
+                  <div className="control has-icons-left">
+                    <input
+                      className={`input ${this.state.error ? 'is-danger' : ''}`}
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      onChange={this.handleChange}
+                    />
+                    <span className="icon is-small is-left">
+                      <FontAwesomeIcon icon={faLock} />
+                    </span>
+                  </div>
+                  {this.state.error && <small className="help is-primary">{this.state.error}</small>}
+                </div>
+                <button type="submit" className="button is-primary is-fullwidth">Login</button>
+                <div className="column is-half is-offset-one-quarter">
+                  <p className="has-text-centered">
+                    <small>Dont have an account?
+                      <Link to="/register" className="form-link"> Sign Up</Link>
+                    </small>
+                  </p>
+                </div>
+              </form>
             </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  type="password"
-                  className={`input ${this.state.error ? 'is-danger' : ''}`}
-                  placeholder="Password"
-                  name="password"
-                  onChange={this.handleChange}
-                  value={this.state.formData.password}
-                />
-              </div>
-            </div>
-            {this.state.error && <small className="help is-danger">Sorry, your credentials were incorrect</small>}
-            <div className="field">
-              <button
-                disabled={!this.state.formData.email || !this.state.formData.password}
-                type="submit"
-                className="button is-fullwidth is-warning">
-                    Login
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-   )
+          </div>
+        </section>
+      </>
+    )
   }
 }
+
 export default Login
