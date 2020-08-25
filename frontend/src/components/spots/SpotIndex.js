@@ -14,7 +14,6 @@ class SpotIndex extends React.Component {
     hideGrid: false,
     currentLocation: null
   }
-  
   async componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(data => {
       // console.log(data.coords)
@@ -29,11 +28,9 @@ class SpotIndex extends React.Component {
       console.log(err)
     }
   }
-
   handleSearch = e => {
     this.setState({ [e.target.name]: e.target.value })
   }
-
   filteredSpots = () => {
     const { spots, searchTerm } = this.state
     const searchBar = new RegExp(searchTerm, 'i')
@@ -61,10 +58,8 @@ class SpotIndex extends React.Component {
       this.setState({ hideMap: false, hideList: true, hideGrid: true })
     }
   }
-
   render() {
     if (!this.state.spots) return null
-
     return (
       <div className="spotsCollection">
         <div className="hero is-medium">
@@ -146,5 +141,4 @@ class SpotIndex extends React.Component {
     )
   }
 }
-
 export default SpotIndex
