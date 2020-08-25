@@ -4,7 +4,11 @@ import { registerUser } from '../../lib/api'
 import { popupNotification } from '../../lib/notification'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser, faLock } from '@fortawesome/free-solid-svg-icons'
+
 // import HeroBanner from '../common/HeroBanner'
+
+import HeroBanner from '../common/HeroBanner'
+
 
 class Register extends React.Component {
   state = {
@@ -16,7 +20,6 @@ class Register extends React.Component {
     },
     errors: {}
   }
-
   handleChange = e => {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     const errors = { ...this.state.errors, [e.target.name]: '' }
@@ -38,7 +41,6 @@ class Register extends React.Component {
       // this.setState({ errors: err.response.data.errors })
     }
   }
-
   render() {
     console.log(this.state.data)
     return (

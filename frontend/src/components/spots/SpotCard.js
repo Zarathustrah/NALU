@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const SpotCard = ({ spot, country, image, waveType, difficulty, season, description, _id }) => (
 
-    <Link to={`/surfspots/${_id}`} className="box">
+    <Link to={`/spots/${_id}`} className="box">
       <div className="column is-full SpotCard">
         <div className="column">
           <img src={image} alt={spot} className="column is-one-quarter is-mobile index-image"/>

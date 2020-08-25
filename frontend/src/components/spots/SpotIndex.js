@@ -1,19 +1,28 @@
 import React from 'react'
-// import { getAllSpots } from '../../lib/api'
-import axios from 'axios'
+import { getAllSpots } from '../../lib/api'
+// import axios from 'axios'
 import SpotCard from './SpotCard'
+import SpotList from './SpotList'
+import SpotMap from './SpotMap'
+
 class SpotIndex extends React.Component {
   state = { 
     spots: null,
-    search: '',
+    searchTerm: '',
     hideMap: true,
     hideList: true,
-    hideGrid: false  
+    hideGrid: false,
+    currentLocation: null
   }
   async componentDidMount() {
+    window.navigator.geolocation.getCurrentPosition(data => {
+      // console.log(data.coords)
+      this.setState({ currentLocation: [data.coords.longitude, data.coords.latitude] })
+    })
+
     try {
-      const res = await axios.get('/api/surfspots')
-      // const res = await getAllSpots()
+      // const res = await axios.get('/api/surfspots')
+      const res = await getAllSpots
       this.setState({ spots: res.data })
     } catch (err) {
       console.log(err)
@@ -23,12 +32,22 @@ class SpotIndex extends React.Component {
     this.setState({ [e.target.name]: e.target.value })
   }
   filteredSpots = () => {
-    const { spots, search } = this.state
-    const searchBar = new RegExp(search, 'i')
-    spots.filter(spot => {
+    const { spots, searchTerm } = this.state
+    const searchBar = new RegExp(searchTerm, 'i')
+    console.log(searchBar)
+    return spots.filter(spot => {
+      console.log(spot)
       return searchBar.test(spot.country) || searchBar.test(spot.continent) || searchBar.test(spot.spot) || searchBar.test(spot.difficulty) || searchBar.test(spot.season) || searchBar.test(spot.waveType)
     })
   }
+
+  // function filterCountries() {
+  //   const re = new RegExp(searchTerm, 'i')
+  //   return countries.filter(country => {
+  //     return re.test(country.name) && (country.region === currentRegion || currentRegion === 'All')
+  //   })
+  // }
+
   handleDisplayCard = e => {
     e.preventDefault()
     if (e.currentTarget.name === 'showList') {
@@ -98,6 +117,25 @@ class SpotIndex extends React.Component {
               ))}
             </div>
           </div>
+        </section>
+        <section className={`${this.state.hideList ? 'section spot-list is-hidden' : 'section spot-list'}`}>
+        <div className="colmns is-multiline">
+          {this.filteredSpots().map(spot => (
+            <SpotList key={`List${spot._id}`} {...spot} />
+          ))}
+        </div>
+        </section>
+        <section className={`${this.state.hideGrid ? 'section spot-grid is-hidden' : 'spot-grid'}`}>
+          <div className="container">
+            <div className="columns is-multiline">
+              {this.filteredSpots().map(spot => (
+                <SpotCard key={`Grid${spot._id}`} {...spot} />
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className={`${this.state.hideMap ? 'section spot-map is-hidden' : 'spot-map'}`}>
+          <SpotMap spots={this.filteredSpots()}/>
         </section>
       </div>
     )
