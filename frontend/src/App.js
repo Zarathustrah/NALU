@@ -12,6 +12,8 @@ import SpotShow from './components/spots/SpotShow'
 import SpotNew from './components/spots/SpotNew'
 import SpotEdit from './components/spots/SpotEdit'
 
+import SpotMap from './components/spots/SpotMap'
+
 import GroupIndex from './components/groups/GroupIndex'
 import GroupShow from './components/groups/GroupShow'
 import GroupNew from './components/groups/GroupNew'
@@ -26,6 +28,7 @@ import ErrorPage from './components/common/ErrorPage'
 const App = () => (
   <BrowserRouter>
     <main>
+      <SpotMap />
       <Notification />
       <Navbar />
       <Switch>
@@ -35,6 +38,7 @@ const App = () => (
         <Route path="/surfspots/new" component={SpotNew} />
         <Route path="/surfspots/:id" component={SpotShow} />
         <Route path="/surfspots" component={SpotIndex} />
+        {/* <Route path="/surfspots/map" component={SpotMap} />   */}
 
         <Route path="/groups/:id/edit" component={GroupEdit} /> 
         <Route path="/groups/new" component={GroupNew} /> 

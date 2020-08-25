@@ -5,7 +5,7 @@ import { setToken } from '../../lib/auth'
 import { popupNotification } from '../../lib/notification'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
-import HeroBanner from '../common/HeroBanner'
+// import HeroBanner from '../common/HeroBanner'
 
 
 class Login extends React.Component {
@@ -40,7 +40,7 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <HeroBanner text="Aloha" />
+        <section className="section is-large">
         <section className="section">
           <div className="container">
             <div className="columns">
@@ -86,6 +86,7 @@ class Login extends React.Component {
               </form>
             </div>
           </div>
+          </section>
         </section>
       </>
     )
