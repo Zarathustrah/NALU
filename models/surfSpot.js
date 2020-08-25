@@ -25,6 +25,13 @@ const surfSpotSchema = new mongoose.Schema({
   timestamps: true
 })
 
+surfSpotSchema
+  .virtual('usersCompleted', {
+    ref: 'User',
+    localField: '_id',
+    foreignField: 'achievedSurfSpot'
+  })
+
 surfSpotSchema.plugin(require('mongoose-unique-validator'))
 
 module.exports = mongoose.model('SurfSpot', surfSpotSchema)

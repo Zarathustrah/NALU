@@ -60,10 +60,11 @@ async function userAchievedSurfSpotsCreate(req, res, next) {
     console.log('🛑 I have reached the currentUser 🛑')
     if (!user) throw new Error(notFound)
     console.log('🛑 Trying to read the method iteration 🛑')
-    console.log(req.body.spot)
-    if (user.achievedSurfSpots.some(spot =>  spot.spot.equals(req.body.spot))) throw new Error('Already added') 
+    console.log(user)
+    console.log(user.achievedSurfSpot)
+    if (user.achievedSurfSpot.some(spot => spot.spot.equals(req.body.spot))) throw new Error('Already added') 
 
-    user.achievedSurfSpots.push(req.body)
+    user.achievedSurfSpot.push(req.body)
     await user.save()
 
     res.status(201).json(user)
@@ -81,7 +82,7 @@ async function userAchievedSurfSpotsDelete(req, res, next) {
     const user = await User.findById(req.params.id)
     if (!user) throw new Error(notFound)
 
-    const achievedSurfSpotsToRemove = user.achievedSurfSpots.id(achievedId)
+    const achievedSurfSpotsToRemove = user.achievedSurfSpot.id(achievedId)
     if (!achievedSurfSpotsToRemove) throw new Error(notFound)
 
 

@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
 const achievedSurfSpotSchema = new mongoose.Schema({
-  spot: { type: mongoose.Schema.ObjectId, ref: 'spot', required: true }
+  spot: { type: mongoose.Schema.ObjectId, ref: 'SurfSpot', required: true }
 })
 
 const userSchema = new mongoose.Schema({
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
 // ! Add created in virtual field (not in db)
 userSchema
   .virtual('createdSpots', {
-    ref: 'Surf Spot',
+    ref: 'SurfSpot',
     localField: '_id',
     foreignField: 'user'
   })
