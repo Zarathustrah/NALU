@@ -23,7 +23,6 @@ class SpotMap extends React.Component {
   async componentDidMount() {
     try {
       const res = await getAllSpots()
-      console.log(res.data)
       this.setState({ surfPoints: res.data})
     } catch (err) {
       console.log(err)
@@ -39,7 +38,6 @@ class SpotMap extends React.Component {
   }
 
   render() {
-    console.log(this.state.surfPoints)
     const { surfPoints, viewport } = this.state
     return (
       <>

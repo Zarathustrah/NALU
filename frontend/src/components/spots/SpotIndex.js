@@ -126,7 +126,7 @@ class SpotIndex extends React.Component {
         <section className={`${this.state.hideList ? 'section spot-list is-hidden' : 'section spot-list'}`}>
         <div className="colmns is-multiline">
           {this.filteredSpots().map(spot => (
-              <SpotList key={`List${spot._id}`} {...spot} />
+            <SpotList key={`List${spot._id}`} {...spot} />
           ))}
         </div>
         </section>
@@ -134,7 +134,7 @@ class SpotIndex extends React.Component {
           <div className="container">
             <div className="columns is-multiline">
               {this.filteredSpots().map(spot => (
-                  <SpotCard key={`Grid${spot._id}`} {...spot} />
+                <SpotCard key={`Grid${spot._id}`} {...spot} />
               ))}
             </div>
           </div>
