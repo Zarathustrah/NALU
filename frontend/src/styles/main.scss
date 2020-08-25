@@ -23,17 +23,13 @@
   -webkit-line-clamp: 2;
 }
 
-
-
+$font-family: 'Nunito', sans-serif;
 
 @import '~bulma/bulma.sass';
 @import 'navbar';
 @import 'home';
 @import 'register';
 @import 'login';
-<<<<<<< HEAD
 @import 'spotsIndex';
-@import 'spotNew'
-=======
-@import 'spotsIndex'
->>>>>>> development
+@import 'spotNew';
+@import 'mapPopUp'
