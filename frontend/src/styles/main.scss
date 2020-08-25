@@ -1,8 +1,6 @@
 @import '~bulma/bulma.sass';
 @import 'navbar';
 @import 'home';
-
-
-h1.julien {
-  color: white,
-}
+@import 'register';
+@import 'login';
+@import 'spotsIndex'
