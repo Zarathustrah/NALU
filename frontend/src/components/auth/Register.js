@@ -5,10 +5,7 @@ import { popupNotification } from '../../lib/notification'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import HeroBanner from '../common/HeroBanner'
-<<<<<<< HEAD
-=======
 
->>>>>>> development
 class Register extends React.Component {
   state = {
     data: {
