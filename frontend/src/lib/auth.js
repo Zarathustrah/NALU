@@ -29,3 +29,7 @@ export const isOwner = userId => {
   if (!isAuthenticated) return false
   return userId === getPayload().sub
 }
+
+export const getUserId = () => {
+  return getPayload().sub
+}

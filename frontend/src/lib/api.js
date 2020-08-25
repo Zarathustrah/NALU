@@ -41,7 +41,7 @@ export const deleteSpotComment = (id, commentId) => {
   return axios.delete(`${baseUrl}/surfspots/${id}/comments/${commentId}`, withHeaders())
 }
 
-// -------------------------------- User Related  -------------------------------- //
+// -------------------------------- User Registration  -------------------------------- //
 
 export const registerUser = formData => {
   console.log(formData, baseUrl)
@@ -50,6 +50,20 @@ export const registerUser = formData => {
 
 export const loginUser = formData => {
   return axios.post(`${baseUrl}/login`, formData )
+}
+
+// --------------------------------  Profiles Related  -------------------------------- //
+
+export const getAllUsers = () => {
+  return axios.get(`${baseUrl}/profiles`, withHeaders())
+}
+
+export const getUser = userId => {
+  return axios.get(`${baseUrl}/profiles/${userId}`, withHeaders())
+}
+
+export const editUser = (userId, data) => {
+  return axios.put(`${baseUrl}/profiles/${userId}`, formData, withHeaders())
 }
 
 // -------------------------------- External API Related  -------------------------------- //

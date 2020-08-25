@@ -39,7 +39,6 @@ class SpotMap extends React.Component {
 
   render() {
     const { surfPoints, viewport } = this.state
-    console.log(viewport)
     return (
       <>
         <h1 className="julien">Fuck off</h1>
@@ -49,7 +48,7 @@ class SpotMap extends React.Component {
             mapboxApiAccessToken={process.env.REACT_APP_MAPTOK}
             height={'100vh'}
             width={'100vw'}
-            mapStyle='mapbox://styles/heybt/cke9wjydl4lb719p30xbp38b3'
+            mapStyle="mapbox://styles/heybt/cke9wjydl4lb719p30xbp38b3"
             onViewportChange={viewport => this.setState({ viewport })}
             zoom={viewport.zoom}
             scrollZoom={false}
