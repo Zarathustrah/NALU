@@ -62,7 +62,7 @@ export const getUser = userId => {
   return axios.get(`${baseUrl}/profiles/${userId}`, withHeaders())
 }
 
-export const editUser = (userId, data) => {
+export const editUser = (userId, formData) => {
   return axios.put(`${baseUrl}/profiles/${userId}`, formData, withHeaders())
 }
 

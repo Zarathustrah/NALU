@@ -1,37 +1,42 @@
 import React from 'react'
 import { createSpot } from '../../lib/api'
+import { popupNotification } from '../../lib/notification'
 
 class SpotNew extends React.Component {
- state = {
-  formData:{
-    continent: '',
-    region: '',
-    country: '',
-    lat: '',
-    long: '',
-    spot: '',
-    waveType: '',
-    difficulty: '',
-    season: '',
-    image: '',
-    description: ''
-  }
+  state = {
+    formData:{
+      continent: '',
+      region: '',
+      country: '',
+      lat: '',
+      long: '',
+      spot: '',
+      waveType: '',
+      difficulty: '',
+      season: '',
+      image: '',
+      description: ''
+    },
+    error: {}
 }
 
-handleChange = ( event ) => {
-  const formData = { ...this.state.formData, [event.target.name]: event.target.value }
-  this.setState({ formData })
+handleChange = ( e ) => {
+  const formData = { ...this.state.formData, [e.target.name]: e.target.value }
+  const errors = { ...this.state.errors, [e.target.name]: '' }
+  this.setState({ formData, errors })
 }
 
-handleSubmit = async event => {
-  event.preventDefault()
+handleSubmit = async e => {
+  e.preventDefault()
 
   try {
     const res = await createSpot(this.state.formData)
     console.log(res)
+    popupNotification('Surf Spot Added')
     this.props.history.push(`/surfspots/${res.data._id}`)
   } catch (err) {
-    console.log(err.response.data)
+    console.log(err)
+    this.setState({ errors: err.response.data.errors })
   }
 }
 

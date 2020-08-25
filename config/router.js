@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const surfSpots = require('../controllers/surfSpots')
 const auth = require('../controllers/auth')
+const users = require('../controllers/users')
 const secureRoute = require('../lib/secureRoute')
 
 router.route('/surfspots')
@@ -18,10 +19,27 @@ router.route('/surfspots/:id/comments')
 router.route('/surfspots/:id/comments/:commentId')
   .delete(secureRoute, surfSpots.commentDelete)
 
+
+//* AUTH 
 router.route('/register')
   .post(auth.register)
 
 router.route('/login')
   .post(auth.login)
+
+
+//* USERS
+router.route('/profiles')
+  .get(secureRoute, users.userIndex)
+
+router.route('/profiles/:id')
+  .get(secureRoute, users.userShow)
+  .put(secureRoute, users.userUpdate)
+
+router.route('/profiles/:id/achieved')
+  .post(secureRoute, users.userAchievedSurfSpotsCreate)
+
+router.route('/profiles/:id/achieved/:achievedId')
+  .delete(secureRoute, users.userAchievedSurfSpotsDelete)
 
 module.exports = router

@@ -1,18 +1,23 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 
+const achievedSurfSpotSchema = new mongoose.Schema({
+  spot: { type: mongoose.Schema.ObjectId, ref: 'spot', required: true }
+})
+
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
+  achievedSurfSpot: [achievedSurfSpotSchema]
 })
 
+// ! Add created in virtual field (not in db)
 userSchema
-  .set('toJSON', {
-    transform(doc, json) {
-      delete json.password
-      return json
-    }
+  .virtual('createdSpots', {
+    ref: 'Surf Spot',
+    localField: '_id',
+    foreignField: 'user'
   })
 
 userSchema
@@ -35,7 +40,15 @@ userSchema
       this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
     }
     next()
-  }) 
+  })
+
+userSchema
+  .set('toJSON', {
+    transform(doc, json) {
+      delete json.password
+      return json
+    }
+  })
 
 userSchema.methods.validatePassword = function(password) {
   return bcrypt.compareSync(password, this.password)
