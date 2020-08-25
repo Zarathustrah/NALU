@@ -52,4 +52,8 @@ export const loginUser = formData => {
   return axios.post(`${baseUrl}/login`, formData )
 }
 
+// -------------------------------- External API Related  -------------------------------- //
 
+// export const getSurfPoints = () => {
+//   return axios.get(`${baseUrl}/surfspots`)
+// }
