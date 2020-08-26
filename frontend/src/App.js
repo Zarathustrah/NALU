@@ -12,7 +12,7 @@ import SpotShow from './components/spots/SpotShow'
 import SpotNew from './components/spots/SpotNew'
 import SpotEdit from './components/spots/SpotEdit'
 
-import SpotMap from './components/spots/SpotMap'
+// import SpotMap from './components/spots/SpotMap'
 
 import GroupIndex from './components/groups/GroupIndex'
 import GroupShow from './components/groups/GroupShow'
@@ -28,7 +28,7 @@ import ErrorPage from './components/common/ErrorPage'
 const App = () => (
   <BrowserRouter>
     <main>
-      <SpotMap />
+      {/* <SpotMap /> */}
       <Notification />
       <Navbar />
       <Switch>

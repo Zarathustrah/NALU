@@ -1,9 +1,6 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react'
 import ReactStars from "react-rating-stars-component";
 
-// import ReactImgModal from '../common/ReactImgModal'
-// import ReactImgUpload from '../common/ImageUpload'
 import SpotMiniMap from './SpotMiniMap'
 import SpotComments from './SpotComments'
 
@@ -33,11 +30,13 @@ class SpotShow extends React.Component {
       const loggedIn = await isAuthenticated()
 
       if (!loggedIn) {
-        this.setState({ spot: res.data, user: '' }, () => {this.handleRating()})
+        // this.setState({ spot: res.data, user: '' }, () => {this.handleRating()})
+        this.setState({ spot: res.data, user: '' })
       } else {
         const currentUserId = await getUserId()
         const currentUser = await getUser(currentUserId)
-        this.setState({ spot: res.data, user: currentUser.data }, () => {this.handleRating()})
+        this.setState({ spot: res.data, user: currentUser.data })
+          // , () => {this.handleRating()})
       }
     } catch (err) {
       console.log(err)
@@ -91,12 +90,12 @@ class SpotShow extends React.Component {
 
   render() {
     if (!this.state.spot) return null
-    const { spot, averageRating, modalImageOn } = this.state
+    const { spot, averageRating } = this.state
     return (
       <div className="SpotShow box">
         <div className="hero is-medium is-success">
-          <div className="hero-body" style={{ backgroundImage: `url(${spot.images})` }}>
-            <h1 cassName="title-logo">{spot.spot}, {spot.country}</h1>
+          <div className="hero-body" style={{ backgroundImage: `url(${spot.image})` }}>
+            <h1 className="title-logo">{spot.spot}, {spot.country}</h1>
           </div>
         </div>
       
@@ -105,16 +104,8 @@ class SpotShow extends React.Component {
             <h1 className="title">Description:</h1>
             <p>{spot.description}</p>
             <hr />
-            <h1>Difficulty: {spot.difficulty.map(difficulty => {
-              return `${difficulty}`
-            })}
-            </h1>
-            <h1>Seasons: {spot.seasons.map(season => {
-              return `${season}`
-              })}
-              </h1>
-
-              //* WEATHER APIS INSERTED HERE
+            <h1>Difficulty: {spot.difficulty} </h1>
+            <h1>Seasons: {spot.season} </h1>
 
               <h1>Average Rating:
                 <ReactStars

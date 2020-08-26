@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAllSpots } from '../../lib/api'
-// import axios from 'axios'
+
 import SpotCard from './SpotCard'
 import SpotList from './SpotList'
 import SpotMap from './SpotMap'
@@ -14,30 +14,29 @@ class SpotIndex extends React.Component {
     hideGrid: false,
     currentLocation: null
   }
+
   async componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(data => {
-      // console.log(data.coords)
       this.setState({ currentLocation: [data.coords.longitude, data.coords.latitude] })
     })
-
     try {
-      // const res = await axios.get('/api/surfspots')
-      const res = await getAllSpots
+      const res = await getAllSpots()
       this.setState({ spots: res.data })
     } catch (err) {
       console.log(err)
     }
   }
+  
   handleSearch = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.spots]: e.target.value })
+    // console.log(e.target.spots)
   }
+
   filteredSpots = () => {
     const { spots, searchTerm } = this.state
-    const searchBar = new RegExp(searchTerm, 'i')
-    console.log(searchBar)
+    const result = new RegExp(searchTerm, 'i')
     return spots.filter(spot => {
-      console.log(spot)
-      return searchBar.test(spot.country) || searchBar.test(spot.continent) || searchBar.test(spot.spot) || searchBar.test(spot.difficulty) || searchBar.test(spot.season) || searchBar.test(spot.waveType)
+      return result.test(spot.country) || result.test(spot.continent) || result.test(spot.spot) || result.test(spot.difficulty) || result.test(spot.season) || result.test(spot.waveType)
     })
   }
 
@@ -58,13 +57,14 @@ class SpotIndex extends React.Component {
       this.setState({ hideMap: false, hideList: true, hideGrid: true })
     }
   }
+  
   render() {
     if (!this.state.spots) return null
     return (
       <div className="spotsCollection">
-        <div className="hero is-medium">
+        <div className="hero is-large">
           <div className="hero-body has-bg-img">
-            <h1 className="title-logo has-text-centered">N A L U</h1>
+            <h1 className="title">N A L U</h1>
           </div>
         </div>
         <div className="field box index-search">
@@ -110,13 +110,6 @@ class SpotIndex extends React.Component {
           </p>
         </div>
         <section className="section">
-          <div className="container">
-            <div className="columns is-multiline">
-              {this.state.spots.map(spot => (
-                <SpotCard key={spot._id} {...spot}/>
-              ))}
-            </div>
-          </div>
         </section>
         <section className={`${this.state.hideList ? 'section spot-list is-hidden' : 'section spot-list'}`}>
         <div className="colmns is-multiline">

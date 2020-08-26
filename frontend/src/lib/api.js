@@ -23,7 +23,7 @@ export const createSpot = formData => {
   return axios.post(`${baseUrl}/surfspots`, formData, withHeaders())
 }
 
-export const updateSurfSpot = (id, formData) => {
+export const editSpot = (id, formData) => {
   return axios.put(`${baseUrl}/surfspots/${id}`, formData, withHeaders())
 } 
 

@@ -2,12 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Truncate from 'react-truncate'
 
-
-
-
 const SpotCard = ({ spot, country, image, waveType, difficulty, season, description, _id }) => (
-
-
 
   <div className="column is-one-third-desktop is-one-third-tablet is-fullwidth SpotCard">
     <Link to={`/surfspots/${_id}`}>
