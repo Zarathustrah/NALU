@@ -2,10 +2,18 @@ import axios from 'axios'
 import { getToken } from './auth'
 
 const baseUrl = '/api'
+// const lat = 
+// const long = 
 
 const withHeaders = () => {
   return {
     headers: { Authorization: `Bearer ${getToken()}` }
+  }
+}
+
+const withMarineHeaders = () => {
+  return {
+    headers: { Authorization: process.env.REACT_APP_STORM }
   }
 }
 
@@ -67,7 +75,12 @@ export const editUser = (userId, formData) => {
 }
 
 // -------------------------------- External API Related  -------------------------------- //
-
-// export const getSurfPoints = () => {
-//   return axios.get(`${baseUrl}/surfspots`)
+// export const getMarineWeatherStatus = () => {
+//   return axios.get(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${long}&params=airTemperature,seaLevel,swellDirection,swellHeight,waterTemperature,waveDirection,waveHeight`, withMarineHeaders())
 // }
+
+
+// export const getLocalWeatherStatus = () => {
+//   return axios.get(`api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_WEATHER_KEY}`)
+// }
+

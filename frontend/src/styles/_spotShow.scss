@@ -1,0 +1,39 @@
+.spotShow {
+  .hero-body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .title-logo {
+      font-family: 'Nunito', sans-serif;
+      font-size: 100px;
+      text-shadow: 0 0 10px #000000;
+      color: #ffffff;
+    }
+  }
+  .spot-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 30px;
+  }
+  .spot-buttons-active {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+  }
+
+  .popup-text {
+    font-family: 'Nunito', sans-serif;
+    font-size: 26px;
+  }
+  .comment-spot {
+    display: flex;
+    
+  }
+
+  .title-show {
+    color: black;
+    size: 20px;
+  }
+}

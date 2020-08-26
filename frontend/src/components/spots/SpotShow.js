@@ -5,7 +5,7 @@ import SpotMiniMap from './SpotMiniMap'
 import SpotComments from './SpotComments'
 
 import { Link } from 'react-router-dom'
-import { showSingleSpot, deleteSpot, commentSpot, deleteSpotComment, getUser } from '../../lib/api'
+import { showSingleSpot, deleteSpot, commentSpot, deleteSpotComment, getUser, getMarineWeatherStatus, getLocalWeatherStatus } from '../../lib/api'
 import { isAuthenticated, isOwner, getUserId } from '../../lib/auth'
 
 class SpotShow extends React.Component {
@@ -21,7 +21,9 @@ class SpotShow extends React.Component {
     comment: {
       text: '',
       rating: ''
-    }
+    },
+    localWeather: null,
+    localMarineWeather: null
   }
 
   async componentDidMount() {
@@ -30,13 +32,12 @@ class SpotShow extends React.Component {
       const loggedIn = await isAuthenticated()
 
       if (!loggedIn) {
-        // this.setState({ spot: res.data, user: '' }, () => {this.handleRating()})
-        this.setState({ spot: res.data, user: '' })
+        this.setState({ spot: res.data, user: '' }, () => {this.handleRating()})
+        // this.setState({ spot: res.data, user: '' })
       } else {
         const currentUserId = await getUserId()
         const currentUser = await getUser(currentUserId)
-        this.setState({ spot: res.data, user: currentUser.data })
-          // , () => {this.handleRating()})
+        this.setState({ spot: res.data, user: currentUser.data }, () => {this.handleRating()})
       }
     } catch (err) {
       console.log(err)
@@ -72,14 +73,14 @@ class SpotShow extends React.Component {
     try {
       await deleteSpotComment(spotId, commentId)
       const res = await showSingleSpot(spotId)
-      this.setState({ spot: res.data },() => {this.getAverageRating()})
+      this.setState({ spot: res.data },() => {this.handleRating()})
+      console.log(res.data)
     } catch (err) {
       console.log(err)
     }
   }
   
   handleRating = () => {
-    // ! back end related
     const comments = this.state.spot.comments
     const ratings = comments.map(comment => {
       return comment.rating
@@ -91,6 +92,7 @@ class SpotShow extends React.Component {
   render() {
     if (!this.state.spot) return null
     const { spot, averageRating } = this.state
+    console.log(this.state.comment)
     return (
       <div className="SpotShow box">
         <div className="hero is-medium is-success">
@@ -99,15 +101,13 @@ class SpotShow extends React.Component {
           </div>
         </div>
       
-        <div className="box">
-          <section className="spot-info">
-            <h1 className="title">Description:</h1>
-            <p>{spot.description}</p>
-            <hr />
+        <div className="weather-info">
+          <div className="columns is-multiline">
+          <section className="column is-one-third spot-info">
             <h1>Difficulty: {spot.difficulty} </h1>
             <h1>Seasons: {spot.season} </h1>
-
-              <h1>Average Rating:
+            <h1>Wave Type: {spot.waveType}</h1>
+            <h1>Average Rating:
                 <ReactStars
                   count={5}
                   size={11}
@@ -119,12 +119,33 @@ class SpotShow extends React.Component {
                   activeColor="#0096c7"
                   edit={false}
                   />
-              </h1>
+            </h1>
+          </section>
+          <section className="column is-one-third local-weather">
+            <h1>Local Weather</h1>
+            <h1>Main</h1>
+            <h1>Description and Icon </h1>
+            <h1>Temperature °C</h1>
+            <h1>Sunrise</h1>
+            <h2>Sunset</h2>
+          </section>
+          <section className="column is-one-third marine-weather">
+            <h1>Marine Weather</h1>
+            <h1>Sea Level </h1>
+            <h1>Swell Direction </h1>
+            <h1>Swell Height </h1>
+            <h1>Water Temp </h1>
+            <h1>Wave Height </h1>
+          </section>
               <hr />
-
+          <section className="description-box">
+          <h1 className="title-show">Description:</h1>
+            <p>{spot.description}</p>
+            <hr />
+          </section>
               <div className="columns is-multiline">
                 <div className="column is-half-desktop">
-                  <h1 className="title">Location: {spot.region}, {spot.country}</h1>
+                  <h1 className="title-show">Location: {spot.region}, {spot.country}</h1>
                   <br />
                   <SpotMiniMap
                     spot={this.state.spot}
@@ -133,7 +154,7 @@ class SpotShow extends React.Component {
                 <div className="column is-half-desktop">
                   <section className="comment-spot">
                     <SpotComments
-                      comment={this.state.spot.comment}
+                      comment={this.state.spot.comments}
                       handleCommentDelete={this.handleCommentDelete}
                       handleCommentSubmit={this.handleCommentSubmit}
                       errors={this.state.errors}
@@ -143,7 +164,8 @@ class SpotShow extends React.Component {
                   </section>
                 </div>
               </div>
-          </section>
+
+          </div>
         </div>
       </div>
     )
