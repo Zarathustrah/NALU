@@ -17,7 +17,7 @@ class SpotNew extends React.Component {
       image: '',
       description: ''
     },
-    error: {}
+    errors: {}
 }
 
 handleChange = ( e ) => {

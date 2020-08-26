@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactStars from "react-rating-stars-component";
+import ReactStars from 'react-rating-stars-component'
 
 import SpotMiniMap from './SpotMiniMap'
 import SpotComments from './SpotComments'
@@ -7,6 +7,7 @@ import SpotComments from './SpotComments'
 import { Link } from 'react-router-dom'
 import { showSingleSpot, deleteSpot, commentSpot, deleteSpotComment, getUser, getMarineWeatherStatus, getLocalWeatherStatus } from '../../lib/api'
 import { isAuthenticated, isOwner, getUserId } from '../../lib/auth'
+import SpotLocalWeather from './SpotLocalWeather'
 
 class SpotShow extends React.Component {
   state = {
@@ -60,9 +61,11 @@ class SpotShow extends React.Component {
       const spotId = this.props.match.params.id
       await commentSpot(spotId, { rating: rating, text: text })
       const res = await showSingleSpot(spotId)
-      this.setState({ spot: res.data, error: '', commentText: '', commentRating: '' }, () => {this.handleRating()})
+      this.setState({ spot: res.data, errors: '', commentText: '', commentRating: '' }, () => {this.handleRating()})
+      console.log(this.state.errors)
     } catch (err) {
-      this.setState({ errros: JSON.parseFloat(err.response.config.data)})
+      console.log(err.response.config.data)
+      this.setState({ errors: JSON.parse(err.response.config.data)})
     }
   }
 
@@ -86,10 +89,15 @@ class SpotShow extends React.Component {
       return comment.rating
     })
     const averageRating = (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(0)
+    // console.log(averageRating)
     this.setState({ averageRating })
   }
 
   render() {
+    console.log(this.state.errors)
+    console.log(this.state.averageRating)
+    console.log(this.state.commentRating)
+
     if (!this.state.spot) return null
     const { spot, averageRating } = this.state
     return (
@@ -109,7 +117,7 @@ class SpotShow extends React.Component {
             <h1>Average Rating:
                 <ReactStars
                   count={5}
-                  size={11}
+                  size={20}
                   half={false}
                   value={parseInt(averageRating)}
                   emptyIcon={<i className="far fa-star"></i>}
@@ -121,12 +129,9 @@ class SpotShow extends React.Component {
             </h1>
           </section>
           <section className="column is-one-third local-weather">
-            <h1>Local Weather</h1>
-            <h1>Main</h1>
-            <h1>Description and Icon </h1>
-            <h1>Temperature °C</h1>
-            <h1>Sunrise</h1>
-            <h2>Sunset</h2>
+            <SpotLocalWeather
+              localWeather={this.state.spot.localWeather}
+              />
           </section>
           <section className="column is-one-third marine-weather">
             <h1>Marine Weather</h1>
@@ -135,7 +140,7 @@ class SpotShow extends React.Component {
             <h1>Swell Height </h1>
             <h1>Water Temp </h1>
             <h1>Wave Height </h1>
-          </section>
+          </section> 
               <hr />
           <section className="description-box">
           <h1 className="title-show">Description:</h1>

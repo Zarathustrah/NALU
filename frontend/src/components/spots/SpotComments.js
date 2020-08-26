@@ -1,7 +1,7 @@
 import React from 'react'
 import Moment from 'react-moment'
 import 'moment-timezone'
-import ReactStars from "react-rating-stars-component"
+import ReactStars from 'react-rating-stars-component'
 
 import { isOwner, getUserId, isAuthenticated } from '../../lib/auth'
 import { getUser } from '../../lib/api'
@@ -76,7 +76,6 @@ class SpotComments extends React.Component {
                   {errors && !errors.text && <small className="help is-danger">Comment is required</small>}
                 </div>
                 {errors && !errors.rating && <small className="help is-danger">Rating is required</small>}
-
                 <div className="level">
                   <div className="level-left">
                     <div className="control">
@@ -90,8 +89,8 @@ class SpotComments extends React.Component {
                         onChange={calcRating => {
                           this.handleRating(calcRating)
                         }}
-                        filledIcon={<i className="fas fa-star" />}
-                        emptyIcon={<i className="fas fa-star" />}
+                        fullIcon={<i className="fa fa-star"></i>}
+                        emptyIcon={<i className="far fa-star"></i>}
                       />
                     </div>
                   </div>
@@ -119,21 +118,23 @@ class SpotComments extends React.Component {
                 </p>
               </figure>
               <div className="media-content">
-                  <div>
-                    <strong>{comment.user.username}</strong> <small><Moment fromNow >{comment.createdAt}</Moment></small>
-                    <ReactStars
-                      count={5}
-                      size={12}
-                      half={false}
-                      value={comment.rating}
-                      filledIcon={<i className="fas fa-star" />}
-                      emptyIcon={<i className="fas fa-star" />}
-                      edit={false}
-                    />
-                    <br />
-                    {comment.text} 
-                  </div>
+                <div>
+                  <strong>{comment.user.username}</strong> <small><Moment fromNow >{comment.createdAt}</Moment></small>
+                  <ReactStars
+                    count={5}
+                    size={20}
+                    half={false}
+                    name="rating"
+                    value={comment.rating}
+                    emptyIcon={<i className="far fa-star"></i>}
+                    halfIcon={<i className="fa fa-star-half-alt"></i>}
+                    fullIcon={<i className="fa fa-star"></i>}
+                    edit={false}
+                  />
+                  <br />
+                  {comment.text}  
                 </div>
+              </div>
               <div className="media-right">
                 <form onSubmit={handleCommentDelete} id={comment._id}>
                   {isOwner(comment.user._id) && <button type="submit" className="delete"></button>}

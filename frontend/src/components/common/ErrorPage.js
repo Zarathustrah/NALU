@@ -1,8 +1,5 @@
 import React from 'react'
 
-
-
-
 const ErrorPage = () => (
   <section className="hero is-fullheight-with-navbar has-background"  >
     <img hero-background src="https://ceylonsliders.com/wp-content/uploads/2018/01/2S8A8835.jpg" alt="surfing wipeout"/>
