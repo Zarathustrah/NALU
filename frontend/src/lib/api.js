@@ -9,6 +9,12 @@ const withHeaders = () => {
   }
 }
 
+const withMarineHeaders = () => {
+  return {
+    headers: { Authorization: process.env.REACT_APP_STORM }
+  }
+}
+
 // -------------------------------- Spot Related  -------------------------------- //
 
 export const getAllSpots = () => {
@@ -23,7 +29,8 @@ export const createSpot = formData => {
   return axios.post(`${baseUrl}/surfspots`, formData, withHeaders())
 }
 
-export const updateSurfSpot = (id, formData) => {
+export const editSpot = (id, formData) => {
+  console.log(formData)
   return axios.put(`${baseUrl}/surfspots/${id}`, formData, withHeaders())
 } 
 
@@ -41,7 +48,7 @@ export const deleteSpotComment = (id, commentId) => {
   return axios.delete(`${baseUrl}/surfspots/${id}/comments/${commentId}`, withHeaders())
 }
 
-// -------------------------------- User Related  -------------------------------- //
+// -------------------------------- User Registration  -------------------------------- //
 
 export const registerUser = formData => {
   console.log(formData, baseUrl)
@@ -52,8 +59,27 @@ export const loginUser = formData => {
   return axios.post(`${baseUrl}/login`, formData )
 }
 
-// -------------------------------- External API Related  -------------------------------- //
+// --------------------------------  Profiles Related  -------------------------------- //
 
-// export const getSurfPoints = () => {
-//   return axios.get(`${baseUrl}/surfspots`)
-// }
+export const getAllUsers = () => {
+  return axios.get(`${baseUrl}/profiles`, withHeaders())
+}
+
+export const getUser = userId => {
+  return axios.get(`${baseUrl}/profiles/${userId}`, withHeaders())
+}
+
+export const editUser = (userId, formData) => {
+  return axios.put(`${baseUrl}/profiles/${userId}`, formData, withHeaders())
+}
+
+// -------------------------------- External API Related  -------------------------------- //
+export const getMarineWeatherStatus = () => {
+  return axios.get(`https://api.stormglass.io/v2/weather/point?lat=${this.props.lat}&lng=${this.props.long}&params=airTemperature,seaLevel,swellDirection,swellHeight,waterTemperature,waveDirection,waveHeight`, withMarineHeaders())
+}
+
+
+export const getLocalWeatherStatus = () => {
+  return axios.get(`api.openweathermap.org/data/2.5/weather?lat=${this.props.lat}&lon=${this.props.long}&appid=${process.env.REACT_APP_WEATHER_KEY}`)
+}
+

@@ -1,7 +1,10 @@
 const router = require('express').Router()
 const surfSpots = require('../controllers/surfSpots')
 const auth = require('../controllers/auth')
+const users = require('../controllers/users')
 const secureRoute = require('../lib/secureRoute')
+
+// --------------------------------  Main Related  -------------------------------- //
 
 router.route('/surfspots')
   .get(surfSpots.index)
@@ -18,10 +21,29 @@ router.route('/surfspots/:id/comments')
 router.route('/surfspots/:id/comments/:commentId')
   .delete(secureRoute, surfSpots.commentDelete)
 
+
+// --------------------------------  Log Related  -------------------------------- //
+
 router.route('/register')
   .post(auth.register)
 
 router.route('/login')
   .post(auth.login)
+
+
+// --------------------------------  Profiles Related  -------------------------------- //
+
+router.route('/profiles')
+  .get(secureRoute, users.userIndex)
+
+router.route('/profiles/:id')
+  .get(secureRoute, users.userShow)
+  .put(secureRoute, users.userUpdate)
+
+router.route('/profiles/:id/achieved')
+  .post(secureRoute, users.userAchievedSurfSpotsCreate)
+
+router.route('/profiles/:id/achieved/:achievedId')
+  .delete(secureRoute, users.userAchievedSurfSpotsDelete)
 
 module.exports = router
