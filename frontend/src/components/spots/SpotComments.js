@@ -22,7 +22,6 @@ class SpotComments extends React.Component {
         this.setState({ userProfileImage: '' })
       } else {
         const res = await getUser(currentUserId)
-        console.log(res.data.profileImage)
         this.setState({ userProfileImage: res.data.profileImage })
       }
     } catch (err) {
@@ -112,7 +111,6 @@ class SpotComments extends React.Component {
           <h1 className="nalu-title">N A L U Comments:</h1>
         </article>
         {comment.map(comment => {
-          console.log(comment.user.profileImage)
           return (
             <article key={comment._id} className="media">
               <figure className="media-left">

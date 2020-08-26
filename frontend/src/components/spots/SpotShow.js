@@ -92,7 +92,6 @@ class SpotShow extends React.Component {
   render() {
     if (!this.state.spot) return null
     const { spot, averageRating } = this.state
-    console.log(this.state.comment)
     return (
       <div className="SpotShow box">
         <div className="hero is-medium is-success">
@@ -111,7 +110,7 @@ class SpotShow extends React.Component {
                 <ReactStars
                   count={5}
                   size={11}
-                  half={true}
+                  half={false}
                   value={parseInt(averageRating)}
                   emptyIcon={<i className="far fa-star"></i>}
                   halfIcon={<i className="fa fa-star-half-alt"></i>}
