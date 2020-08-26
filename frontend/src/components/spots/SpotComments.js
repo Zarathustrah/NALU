@@ -1,7 +1,7 @@
 import React from 'react'
 import Moment from 'react-moment'
 import 'moment-timezone'
-import ReactStars from "react-rating-stars-component"
+import ReactStars from 'react-rating-stars-component'
 
 import { isOwner, getUserId, isAuthenticated } from '../../lib/auth'
 import { getUser } from '../../lib/api'
@@ -9,7 +9,7 @@ import { getUser } from '../../lib/api'
 class SpotComments extends React.Component {
   state = {
     commentData: '',
-    rating: 0,
+    rating: '',
     userProfileImage: '',
     // createdDate: ''
   }
@@ -76,7 +76,6 @@ class SpotComments extends React.Component {
                   {errors && !errors.text && <small className="help is-danger">Comment is required</small>}
                 </div>
                 {errors && !errors.rating && <small className="help is-danger">Rating is required</small>}
-
                 <div className="level">
                   <div className="level-left">
                     <div className="control">
@@ -90,8 +89,8 @@ class SpotComments extends React.Component {
                         onChange={calcRating => {
                           this.handleRating(calcRating)
                         }}
-                        filledIcon={<i className="fas fa-star" />}
-                        emptyIcon={<i className="fas fa-star" />}
+                        fullIcon={<i className="fa fa-star"></i>}
+                        emptyIcon={<i className="far fa-star"></i>}
                       />
                     </div>
                   </div>

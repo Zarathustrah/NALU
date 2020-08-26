@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactStars from "react-rating-stars-component"
+import ReactStars from 'react-rating-stars-component'
 
 import SpotMiniMap from './SpotMiniMap'
 import SpotComments from './SpotComments'
@@ -61,9 +61,11 @@ class SpotShow extends React.Component {
       const spotId = this.props.match.params.id
       await commentSpot(spotId, { rating: rating, text: text })
       const res = await showSingleSpot(spotId)
-      this.setState({ spot: res.data, error: '', commentText: '', commentRating: '' }, () => {this.handleRating()})
+      this.setState({ spot: res.data, errors: '', commentText: '', commentRating: '' }, () => {this.handleRating()})
+      console.log(this.state.errors)
     } catch (err) {
-      this.setState({ errros: JSON.parseFloat(err.response.config.data)})
+      console.log(err.response.config.data)
+      this.setState({ errors: JSON.parse(err.response.config.data)})
     }
   }
 
@@ -87,10 +89,15 @@ class SpotShow extends React.Component {
       return comment.rating
     })
     const averageRating = (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(0)
+    // console.log(averageRating)
     this.setState({ averageRating })
   }
 
   render() {
+    console.log(this.state.errors)
+    console.log(this.state.averageRating)
+    console.log(this.state.commentRating)
+
     if (!this.state.spot) return null
     const { spot, averageRating } = this.state
     return (
