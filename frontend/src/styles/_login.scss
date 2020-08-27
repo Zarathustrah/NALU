@@ -1,19 +1,20 @@
-.section.is-medium.login{
-  height: 100vh;
-  background-image: url("../components/common/images/two.jpeg");
-  background-repeat: no-repeat;
+.hero.is-fullheight.login{
+  background-image: url("https://images.unsplash.com/photo-1519867742-f8857bdd477e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
   background-size: cover;
-  padding: 5%;
-  opacity:90%
+
+
 
 }
 
-.login{
-    display: flex;  
-    justify-content: center;
-    padding-bottom: 2%;
-    color: white;
-    font-size: 60px;
-    align-items: flex-start;
-    font-weight: bold;
+.signup{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2%;
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  align-items: flex-start;  
+  font-family: 'Nunito Sans', sans-serif;
+  margin-top: 30px;
+  opacity: 80%;
 }

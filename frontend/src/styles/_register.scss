@@ -1,23 +1,26 @@
-.banner{
-  height: 100vh;
-  background-image: url("../components/common/images/five.jpeg");
-  size: 50%;
+.hero.is-fullheight.banner{
+  background-image: url("https://images.unsplash.com/photo-1490506051286-53652f168700?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
+  background-position: 50%;
+  background-position-y: 40%;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 5%;
-  opacity: 90%;
-
-}
+}   
 .register{
   display: flex;
   justify-content: center;
   padding-bottom: 2%;
   color: white;
   font-weight: bold;
-  font-size: 60px;
+  font-size: 50px;
   align-items: flex-start;  
+  font-family: 'Nunito Sans', sans-serif;
+  margin-top: -15%;
 }
 
 .label{
   text-align: 4px;
+}
+
+.box{
+  opacity: 90%;
 }

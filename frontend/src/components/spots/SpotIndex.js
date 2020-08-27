@@ -16,6 +16,7 @@ class SpotIndex extends React.Component {
   }
 
   async componentDidMount() {
+    console.log(this.props)
     window.navigator.geolocation.getCurrentPosition(data => {
       this.setState({ currentLocation: [data.coords.longitude, data.coords.latitude] })
     })
@@ -41,14 +42,12 @@ class SpotIndex extends React.Component {
       return result.test(spot.country) || result.test(spot.continent) || result.test(spot.spot) || result.test(spot.difficulty) || result.test(spot.season) || result.test(spot.waveType)
     })
   }
-
   // function filterCountries() {
   //   const re = new RegExp(searchTerm, 'i')
   //   return countries.filter(country => {
   //     return re.test(country.name) && (country.region === currentRegion || currentRegion === 'All')
   //   })
   // }
-
   handleDisplayCard = e => {
     e.preventDefault()
     if (e.currentTarget.name === 'showList') {
@@ -62,11 +61,12 @@ class SpotIndex extends React.Component {
   
   render() {
     if (!this.state.spots) return null
+    console.log(this.state.spots)
     return (
       <div className="spotsCollection">
-        <div className="hero is-large">
+        <div className="hero is-medium index">
           <div className="hero-body has-bg-img">
-            <h1 className="title">N A L U</h1>
+            <h1 className="title nalu">N A L U</h1>
           </div>
         </div>
         <div className="field box index-search">

@@ -1,7 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
-
 const SpotForm = ({ formData, handleChange, handleSubmit, submitText }) => {
   return (
     <div className="columns">
@@ -182,5 +181,4 @@ const SpotForm = ({ formData, handleChange, handleSubmit, submitText }) => {
     </div>
   )
 }
-
 export default SpotForm

@@ -4,8 +4,14 @@ import { registerUser } from '../../lib/api'
 import { popupNotification } from '../../lib/notification'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser, faLock } from '@fortawesome/free-solid-svg-icons'
-import HeroBanner from '../common/HeroBanner'
+// import HeroBanner from '../common/HeroBanner'
 
+<<<<<<< HEAD
+// import HeroBanner from '../common/HeroBanner'
+
+
+=======
+>>>>>>> development
 class Register extends React.Component {
   state = {
     data: {
@@ -41,10 +47,12 @@ class Register extends React.Component {
     console.log(this.state.data)
     return (
       <>
+        <section className="hero is-fullheight banner">
         <section className="section is-large">
           <div className="container">
+          <h1 className="register">Join The Crew</h1>
             <div className="columns">
-              <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter box">
+              <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter box change" >
                 <div className="field">
                   <label className="label">Username</label>
                   <div className="control has-icons-left">
@@ -120,7 +128,8 @@ class Register extends React.Component {
               </form>
             </div>
           </div>
-        </section>
+      </section>
+      </section>
       </>
     )
   }

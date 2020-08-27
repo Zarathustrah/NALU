@@ -36,17 +36,17 @@ handleSubmit = async event => {
 }
 
   render() {
-    return ( 
-      <section className="section">
-        <div className="container">
-          <SpotForm 
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            formData={this.state.formData}
-            />
-        </div>
-      </section>
+    return ( <section className="section">
+      <div className="container">
+        <SpotForm 
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          formData={this.state.formData}
+          />
+      </div>
+    </section>
     )
   }
 }
+
 export default SpotNew

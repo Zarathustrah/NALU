@@ -1,15 +1,16 @@
 .hero.is-fullheight{
-  display: flex;
-  background: url("../components/common/images/homepage.jpg");
+  background-image: url("https://images.unsplash.com/photo-1499727349905-b4a773a89264?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80");
+  background-position: 50%;
+  background-position-y: 40%;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
-.title{
+.frontpage{
   display: flex;
   justify-content: center;
   color: white;
-  font-size: 100px;
 }
 
 .input{
@@ -26,4 +27,18 @@
 .navbar-item.has-dropdown{
 padding-top: 8%;
 padding-left: 10%;
+}
+
+.title.is-1.frontpage.wavy{
+  font-size: 80px;
+}
+.wavy{
+  position: relative;
+  -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0.6,0.6,0.6,0.6));
+}
+.field.is-grouped.search{
+  margin-top: 50px;
+}
+.swimmer{
+  width: 160%;
 }

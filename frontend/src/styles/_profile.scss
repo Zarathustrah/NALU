@@ -1,0 +1,35 @@
+.title.heading{
+  font-size: 50px;
+  padding-left: 30px;
+  padding-bottom: 50px;
+}
+
+.container.picture{
+  margin-left: 10%;
+}
+.image.is-128x128{
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.tile.is-parent.tile.is-6{
+  margin-left: 20%;
+}
+
+.personalinfo{
+  margin-left: 10%;
+}
+
+.section.profilepage{
+background: url("../components/common/images/PuertoSandino.jpeg");
+min-height: 100%;
+min-width: 1024px;
+width: 100%;
+height: auto;
+position: fixed;
+top: 0;
+left: 0;
+
+}

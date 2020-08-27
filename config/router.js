@@ -5,9 +5,7 @@ const users = require('../controllers/users')
 const secureRoute = require('../lib/secureRoute')
 
 // --------------------------------  Main Related  -------------------------------- //
-
-router
-  .route('/surfspots')
+router.route('/surfspots')
   .get(surfSpots.index)
   .post(secureRoute, surfSpots.create)
 
@@ -38,17 +36,31 @@ router.route('/login')
 router.route('/profiles')
   .get(secureRoute, users.userIndex)
 
-router
-  .route('/profiles/:id')
+router.route('/profiles/:id')
   .get(secureRoute, users.userShow)
   .put(secureRoute, users.userUpdate)
 
-router
-  .route('/profiles/:id/achieved')
-  .post(secureRoute, users.userAchievedSurfSpotsCreate)
+// --------------------------------  Log Related  -------------------------------- //
 
-router
-  .route('/profiles/:id/achieved/:achievedId')
+router.route('/register')
+  .post(auth.register)
+
+router.route('/profiles/:id/achieved/:achievedId')
   .delete(secureRoute, users.userAchievedSurfSpotsDelete)
 
+// --------------------------------  Profiles Related  -------------------------------- //
+
+router.route('/profiles')
+  .get(secureRoute, users.userIndex)
+
+router.route('/profiles/:id')
+  .get(secureRoute, users.userShow)
+  .put(secureRoute, users.userUpdate)
+
+router.route('/profiles/:id/achieved')
+  .post(secureRoute, users.userAchievedSurfSpotsCreate)
+
+router.route('/profiles/:id/achieved/:achievedId')
+  .delete(secureRoute, users.userAchievedSurfSpotsDelete)
+  
 module.exports = router
