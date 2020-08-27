@@ -29,13 +29,9 @@
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-<<<<<<< HEAD
     "react-select": "^3.1.0",
-    "react-star-ratings": "^2.3.0"
-=======
     "react-star-ratings": "^2.3.0",
     "react-truncate": "^2.4.0"
->>>>>>> development
   },
   "scripts": {
     "start": "react-scripts start",

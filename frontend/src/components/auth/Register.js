@@ -6,12 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 // import HeroBanner from '../common/HeroBanner'
 
-<<<<<<< HEAD
-// import HeroBanner from '../common/HeroBanner'
-
-
-=======
->>>>>>> development
 class Register extends React.Component {
   state = {
     data: {
