@@ -54,6 +54,7 @@ class Navbar extends React.Component {
     // const surferID = getUserID()
 
     return (
+      
       <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">
@@ -66,7 +67,7 @@ class Navbar extends React.Component {
           </div>
           <div className={`navbar-menu ${navbarOpen? 'is-active' : ''}`}>
             <div className="navbar-end">
-              {!isAuthenticated() && <Link to="/surfspots"><div className="navbar-item main-nav">World Spots</div></Link>}
+              {!isAuthenticated() && <Link to="/surfspots"><div className="navbar-item main-nav worldspot">World Spots</div></Link>}
               {isAuthenticated() && <div className={`navbar-item has-dropdown ${spotsOpen ? 'is-active' : ''}`} onClick={() => this.handleNavToggle('spots')}>
                 <span className="main-nav">Spots</span>
                 <div className="navbar-dropdown">

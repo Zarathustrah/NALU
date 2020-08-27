@@ -40,9 +40,10 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <section className="section is-large">
+        <section className="hero is-fullheight login">
         <section className="section">
           <div className="container">
+          <h1 className="signup">Welcome Back</h1>
             <div className="columns">
               <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter box">
                 <div className="field">
@@ -75,7 +76,7 @@ class Login extends React.Component {
                   </div>
                   {this.state.error && <small className="help is-primary">{this.state.error}</small>}
                 </div>
-                <button type="submit" className="button is-primary is-fullwidth">Login</button>
+                <button type="submit" className="button is-dark is-fullwidth">Login</button>
                 <div className="column is-half is-offset-one-quarter">
                   <p className="has-text-centered">
                     <small>Dont have an account?

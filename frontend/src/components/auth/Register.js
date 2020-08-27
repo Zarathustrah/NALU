@@ -7,7 +7,7 @@ import { faEnvelope, faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 
 // import HeroBanner from '../common/HeroBanner'
 
-import HeroBanner from '../common/HeroBanner'
+// import HeroBanner from '../common/HeroBanner'
 
 
 class Register extends React.Component {
@@ -45,10 +45,12 @@ class Register extends React.Component {
     console.log(this.state.data)
     return (
       <>
+        <section className="hero is-fullheight banner">
         <section className="section is-large">
           <div className="container">
+          <h1 className="register">Join The Crew</h1>
             <div className="columns">
-              <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter box">
+              <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter box change" >
                 <div className="field">
                   <label className="label">Username</label>
                   <div className="control has-icons-left">
@@ -124,7 +126,8 @@ class Register extends React.Component {
               </form>
             </div>
           </div>
-        </section>
+      </section>
+      </section>
       </>
     )
   }

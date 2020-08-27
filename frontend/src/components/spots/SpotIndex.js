@@ -15,14 +15,14 @@ class SpotIndex extends React.Component {
     currentLocation: null
   }
   async componentDidMount() {
+    console.log(this.props)
     window.navigator.geolocation.getCurrentPosition(data => {
       // console.log(data.coords)
       this.setState({ currentLocation: [data.coords.longitude, data.coords.latitude] })
     })
-
     try {
       // const res = await axios.get('/api/surfspots')
-      const res = await getAllSpots
+      const res = await getAllSpots()
       this.setState({ spots: res.data })
     } catch (err) {
       console.log(err)
@@ -36,18 +36,15 @@ class SpotIndex extends React.Component {
     const searchBar = new RegExp(searchTerm, 'i')
     console.log(searchBar)
     return spots.filter(spot => {
-      console.log(spot)
       return searchBar.test(spot.country) || searchBar.test(spot.continent) || searchBar.test(spot.spot) || searchBar.test(spot.difficulty) || searchBar.test(spot.season) || searchBar.test(spot.waveType)
     })
   }
-
   // function filterCountries() {
   //   const re = new RegExp(searchTerm, 'i')
   //   return countries.filter(country => {
   //     return re.test(country.name) && (country.region === currentRegion || currentRegion === 'All')
   //   })
   // }
-
   handleDisplayCard = e => {
     e.preventDefault()
     if (e.currentTarget.name === 'showList') {
@@ -60,11 +57,12 @@ class SpotIndex extends React.Component {
   }
   render() {
     if (!this.state.spots) return null
+    console.log(this.state.spots)
     return (
       <div className="spotsCollection">
-        <div className="hero is-medium">
+        <div className="hero is-medium index">
           <div className="hero-body has-bg-img">
-            <h1 className="title-logo has-text-centered">N A L U</h1>
+            <h1 className="title nalu">N A L U</h1>
           </div>
         </div>
         <div className="field box index-search">
