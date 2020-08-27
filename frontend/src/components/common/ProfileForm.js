@@ -15,7 +15,7 @@ class ProfileForm extends React.Component {
   }
   
   async componentDidMount() {
-    const userId = this.props.match.params.username
+    const userId = this.props.match.params.id
     console.log(userId)
     try {
       const res = await registerUser(userId)
@@ -43,3 +43,17 @@ class ProfileForm extends React.Component {
 }
 
 export default ProfileForm
+
+
+let completedSurfSpots
+if (profile.completedHikes) {
+  if (profile.completedHikes.length > 0) {
+    completedHikes = profile.completedHikes.map(hike => {
+      return <ProfileComplete key={hike._id} {...hike} handleClick={this.removeHike} edit={this.state.edit} />
+    })
+  } else {
+    if (isOwner(this.state.profile._id)) {
+      completedHikes = <div>No new hikes yet. Add a new one below...</div>
+    } else { completedHikes = <div> No completed hikes added</div> }
+  }
+}

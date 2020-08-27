@@ -43,87 +43,87 @@ class Register extends React.Component {
     return (
       <>
         <section className="hero is-fullheight banner">
-        <section className="section is-large">
-          <div className="container">
-          <h1 className="register">Join The Crew</h1>
-            <div className="columns">
-              <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter box change" >
-                <div className="field">
-                  <label className="label">Username</label>
-                  <div className="control has-icons-left">
-                    <input
-                      className={`input ${this.state.errors.username ? 'is-danger' : ''}`}
-                      placeholder="Username"
-                      name="username"
-                      onChange={this.handleChange}
-                    />
-                    <span className="icon is-small is-left">
-                      <FontAwesomeIcon icon={faUser} />
-                    </span>
+          <section className="section is-large">
+            <div className="container">
+            <h1 className="register">Join The Crew</h1>
+              <div className="columns">
+                <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter box change" >
+                  <div className="field">
+                    <label className="label">Username</label>
+                    <div className="control has-icons-left">
+                      <input
+                        className={`input ${this.state.errors.username ? 'is-danger' : ''}`}
+                        placeholder="Username"
+                        name="username"
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <FontAwesomeIcon icon={faUser} />
+                      </span>
+                    </div>
+                    {this.state.errors.username && <small className="help is-danger">{this.state.errors.username}</small>}
                   </div>
-                  {this.state.errors.username && <small className="help is-danger">{this.state.errors.username}</small>}
-                </div>
-                <div className="field">
-                  <label className="label">Email</label>
-                  <div className="control has-icons-left">
-                    <input
-                      className={`input ${this.state.errors.email ? 'is-danger' : ''}`}
-                      placeholder="Email"
-                      name="email"
-                      onChange={this.handleChange}
-                    />
-                    <span className="icon is-small is-left">
-                      <FontAwesomeIcon icon={faEnvelope} />
-                    </span>
+                  <div className="field">
+                    <label className="label">Email</label>
+                    <div className="control has-icons-left">
+                      <input
+                        className={`input ${this.state.errors.email ? 'is-danger' : ''}`}
+                        placeholder="Email"
+                        name="email"
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <FontAwesomeIcon icon={faEnvelope} />
+                      </span>
+                    </div>
+                    {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
                   </div>
-                  {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
-                </div>
-                <div className="field">
-                  <label className="label">Password</label>
-                  <div className="control has-icons-left">
-                    <input
-                      className={`input ${this.state.errors.password ? 'is-danger' : ''}`}
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      onChange={this.handleChange}
-                    />
-                    <span className="icon is-small is-left">
-                      <FontAwesomeIcon icon={faLock} />
-                    </span>
+                  <div className="field">
+                    <label className="label">Password</label>
+                    <div className="control has-icons-left">
+                      <input
+                        className={`input ${this.state.errors.password ? 'is-danger' : ''}`}
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <FontAwesomeIcon icon={faLock} />
+                      </span>
+                    </div>
+                    {this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small>}
                   </div>
-                  {this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small>}
-                </div>
-                <div className="field">
-                  <label className="label">Password Confirmation</label>
-                  <div className="control has-icons-left">
-                    <input
-                      className={`input ${this.state.errors.passwordConfirmation ? 'is-danger' : ''}`}
-                      type="password"
-                      placeholder="Password Confirmation"
-                      name="passwordConfirmation"
-                      onChange={this.handleChange}
-                    />
-                    <span className="icon is-small is-left">
-                      <FontAwesomeIcon icon={faLock} />
-                    </span>
+                  <div className="field">
+                    <label className="label">Password Confirmation</label>
+                    <div className="control has-icons-left">
+                      <input
+                        className={`input ${this.state.errors.passwordConfirmation ? 'is-danger' : ''}`}
+                        type="password"
+                        placeholder="Password Confirmation"
+                        name="passwordConfirmation"
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <FontAwesomeIcon icon={faLock} />
+                      </span>
+                    </div>
+                    {this.state.errors.passwordConfirmation && <small className="help is-danger">{this.state.errors.passwordConfirmation}</small>}
                   </div>
-                  {this.state.errors.passwordConfirmation && <small className="help is-danger">{this.state.errors.passwordConfirmation}</small>}
-                </div>
-                <div className="field">
-                  <button type="submit" className="button is-fullwidth is-primary">Register Me</button>
-                </div>
-                <div className="column is-half is-offset-one-quarter">
-                  <p className="has-text-centered">
-                    <small>Already have an account?
-                      <Link to="/login" className="form-link">Log In</Link>
-                    </small>
-                  </p>
-                </div>
-              </form>
+                  <div className="field">
+                    <button type="submit" className="button is-fullwidth is-primary">Register Me</button>
+                  </div>
+                  <div className="column is-half is-offset-one-quarter">
+                    <p className="has-text-centered">
+                      <small>Already have an account?
+                        <Link to="/login" className="form-link">Log In</Link>
+                      </small>
+                    </p>
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
-      </section>
+        </section>
       </section>
       </>
     )

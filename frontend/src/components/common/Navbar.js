@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { logout, isAuthenticated } from '../../lib/auth'
+import { logout, isAuthenticated, getUserId } from '../../lib/auth'
 import { popupNotification } from '../../lib/notification'
-import { getUserId } from '../../lib/auth'
 
 class Navbar extends React.Component {
   state = { 
@@ -12,16 +11,6 @@ class Navbar extends React.Component {
     accountOpen: false,
     // users: null
   }
-
-  // async componentDidMount() {
-  //   try {
-  //     const res = await getUser()
-  //     this.setState({ users: res.data })
-  //     console.log(res.data)
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
 
   handleNavToggle = tab => {
     if (tab === 'spots') {

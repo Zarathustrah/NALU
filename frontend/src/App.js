@@ -50,7 +50,7 @@ const App = () => (
 
         {/* <Route path="/users/:id" component={UserShow} /> */}
         <Route path="/users" component={UserIndex} />
-        <Route path="/profile/:id" component={Profile} />
+        <SecureRoute exact path="/profile/:id" component={Profile} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
 

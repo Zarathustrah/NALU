@@ -1,5 +1,6 @@
 import React from 'react'
 import { getUser } from '../../lib/api'
+import { isOwner } from '../../lib/auth'
 
 class Profile extends React.Component {
   state= {
@@ -8,7 +9,7 @@ class Profile extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await getUser()
+      const res = await getUser(this.props.match.params.id)
       this.setState({ users: res.data })
       console.log(res.data)
     } catch (err) {
@@ -31,8 +32,8 @@ class Profile extends React.Component {
                   <img className="is-rounded"
                     name="profileImage"
                     value=""
-                    alt="pic"
-                    src="https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg"
+                    alt="user-img"
+                    src={users.profileImage}
                   />
                 </figure>
               </div>
@@ -47,13 +48,16 @@ class Profile extends React.Component {
                 value="">
               </div>
               <div className="column details">
-                <h1>{users._id}</h1>
+                <h1>{users.username}</h1>
               </div>
               <hr className="seperator" />
-              <div className="column details">Email </div>
+              <div className="column details">
+              <h1>{users.email}</h1>
+              </div>
               <hr className="seperator" />
-              <div className="column details">Experience Level</div>
-              <hr className="seperator" />
+              <div className="column details">
+              {/* <h1>{users.}</h1> */}
+              </div>
             </div>
           </div>
         </div>
