@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const commentSchema = new mongoose.Schema({
   text: { type: String, required: true, maxlength: 300 },
-  rating: { type: Number, min: 1, max: 5 },
+  rating: { type: Number, required: true, min: 1, max: 5 },
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 }, {
   timestamps: true

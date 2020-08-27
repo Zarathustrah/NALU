@@ -12,7 +12,7 @@ import SpotShow from './components/spots/SpotShow'
 import SpotNew from './components/spots/SpotNew'
 import SpotEdit from './components/spots/SpotEdit'
 
-import SpotMap from './components/spots/SpotMap'
+// import SpotMap from './components/spots/SpotMap'
 
 import GroupIndex from './components/groups/GroupIndex'
 import GroupShow from './components/groups/GroupShow'
@@ -23,18 +23,19 @@ import UserIndex from './components/users/UserIndex'
 import UserShow from './components/users/UserShow'
 
 import ErrorPage from './components/common/ErrorPage'
+import SecureRoute from './components/common/SecureRoute'
 
 
 const App = () => (
   <BrowserRouter>
     <main>
-      <SpotMap />
+      {/* <SpotMap /> */}
       <Notification />
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
       
-        <Route path="/surfspots/:id/edit" component={SpotEdit} />
+        <SecureRoute path="/surfspots/:id/edit" component={SpotEdit} />
         <Route path="/surfspots/new" component={SpotNew} />
         <Route path="/surfspots/:id" component={SpotShow} />
         <Route path="/surfspots" component={SpotIndex} />
