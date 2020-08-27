@@ -25,9 +25,8 @@ class Profile extends React.Component {
     }
   }
 
- 
   render(){
- 
+  
     return (
       <section className="section profilepage">
         <div className="container">

@@ -7,6 +7,7 @@ import Navbar from './components/common/Navbar'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Profile from './components/common/Profile'
+import ProfileForm from './components/common/ProfileForm'
 
 import SpotIndex from './components/spots/SpotIndex'
 import SpotShow from './components/spots/SpotShow'
@@ -52,7 +53,7 @@ const App = () => (
 
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile/:id" component={ProfileForm} />
         <Route path="/*" component={ErrorPage} />
       </Switch>
     </main>
