@@ -7,7 +7,8 @@ import HandleCompletedSpot from './HandleCompletedSpot'
 
 class Profile extends React.Component {
   state= {
-    users: null
+    users: null,
+    edit: false
   }
 
   async componentDidMount() {
@@ -32,6 +33,11 @@ class Profile extends React.Component {
     } catch (err) {
       console.log(err.response)
     }
+  }
+
+  enableEdit = () => {
+    const editTerm = this.state.editTerm === 'Edit' ? 'Close edit' : 'Edit'
+    this.setState({ edit: !this.state.edit, editTerm })
   }
 
   render() {

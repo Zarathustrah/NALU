@@ -40,27 +40,11 @@ router.route('/profile/:id')
   .get(secureRoute, users.userShow)
   .put(secureRoute, users.userUpdate)
 
-// --------------------------------  Log Related  -------------------------------- //
-
-router.route('/register')
-  .post(auth.register)
-
-router.route('/profile/:id/achieved/:achievedId')
-  .delete(secureRoute, users.userAchievedSurfSpotsDelete)
-
-// --------------------------------  Profiles Related  -------------------------------- //
-
-router.route('/profile')
-  .get(secureRoute, users.userIndex)
-
-router.route('/profile/:id')
-  .get(secureRoute, users.userShow)
-  .put(secureRoute, users.userUpdate)
-
 router.route('/profile/:id/achieved')
   .post(secureRoute, users.userAchievedSurfSpotsCreate)
 
 router.route('/profile/:id/achieved/:achievedId')
   .delete(secureRoute, users.userAchievedSurfSpotsDelete)
-  
+
+
 module.exports = router
