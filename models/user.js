@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+<<<<<<< HEAD
+=======
+  profileImage: { type: String, required: true },
+>>>>>>> development
   achievedSurfSpot: [achievedSurfSpotSchema]
 })
 

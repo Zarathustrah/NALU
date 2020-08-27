@@ -4,12 +4,14 @@ import { registerUser } from '../../lib/api'
 import { popupNotification } from '../../lib/notification'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser, faLock } from '@fortawesome/free-solid-svg-icons'
-
 // import HeroBanner from '../common/HeroBanner'
 
+<<<<<<< HEAD
 // import HeroBanner from '../common/HeroBanner'
 
 
+=======
+>>>>>>> development
 class Register extends React.Component {
   state = {
     data: {
@@ -38,7 +40,7 @@ class Register extends React.Component {
     } catch (err) {
       console.log(this.state)
       console.log(err)
-      // this.setState({ errors: err.response.data.errors })
+      this.setState({ errors: err.response.data.errors })
     }
   }
   render() {

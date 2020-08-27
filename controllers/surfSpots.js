@@ -33,14 +33,12 @@ async function surfSpotsShow(req, res, next) {
 }
 
 async function surfSpotsEdit(req, res, next) {
+  console.log('params', req.params)
   try {
-    const editedSurfSpot = await SurfSpot.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true, runValidators: true }
-    )
-    if (!editedSurfSpot) throw new Error(notFound)
-    res.status(202).json(editedSurfSpot)
+    const spot = await SurfSpot.findById(req.params.id)
+    Object.assign(spot, req.body)
+    await spot.save()
+    res.status(201).json(spot)
   } catch (err) {
     next(err)
   }

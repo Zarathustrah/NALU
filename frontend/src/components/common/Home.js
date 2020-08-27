@@ -14,8 +14,8 @@ class Home extends React.Component {
   
 
   handleSubmit = event => {
-     event.preventDefault()
-     this.props.history.push(`/surfspots?search=${this.state.search}`)
+    event.preventDefault()
+    this.props.history.push(`/surfspots?search=${this.state.search}`)
   }
 
 
@@ -44,8 +44,8 @@ class Home extends React.Component {
             </p>
             <p className="control">
             <button className="button is-rounded is-primary swimmer">
-              <span className="icon"> Search
-              </span>
+            <span className="icon"> Search
+            </span>
             </button>
             </p>
             </form>

@@ -24,6 +24,7 @@ import UserIndex from './components/users/UserIndex'
 import UserShow from './components/users/UserShow'
 
 import ErrorPage from './components/common/ErrorPage'
+import SecureRoute from './components/common/SecureRoute'
 
 
 const App = () => (
@@ -35,7 +36,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
       
-        <Route path="/surfspots/:id/edit" component={SpotEdit} />
+        <SecureRoute path="/surfspots/:id/edit" component={SpotEdit} />
         <Route path="/surfspots/new" component={SpotNew} />
         <Route path="/surfspots/:id" component={SpotShow} />
         <Route path="/surfspots" component={SpotIndex} />

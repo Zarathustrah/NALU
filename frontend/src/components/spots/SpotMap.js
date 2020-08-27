@@ -30,11 +30,11 @@ class SpotMap extends React.Component {
   }
 
   handlePopupShow = e => {
-    if (e.currentTarget.classname === "small-popup") {
-      e.currentTarget.className = "large-popup"
+    if (e.currentTarget.className === "text-popup") {
+      e.currentTarget.className = "card-popup"
     } else {
-      e.currentTarget.className = "small-popup"
-    }
+      e.currentTarget.className = "text-popup"
+    } 
   }
 
   render() {
@@ -48,9 +48,10 @@ class SpotMap extends React.Component {
             mapboxApiAccessToken={process.env.REACT_APP_MAPTOK}
             height={'100vh'}
             width={'100vw'}
-            mapStyle='mapbox://styles/heybt/cke2jh7be0z3j19qnclq6kisx'
+            mapStyle="mapbox://styles/heybt/cke9wjydl4lb719p30xbp38b3"
             onViewportChange={viewport => this.setState({ viewport })}
-            zoom={3}
+            zoom={viewport.zoom}
+            scrollZoom={false}
           >
         {surfPoints.map(point => {
           return (
@@ -60,7 +61,7 @@ class SpotMap extends React.Component {
                 longitude={point.long}
                 closeButton={false}
                 >
-                  <div className="small-popup" onClick={this.handlePopupShow}>
+                  <div className="text-popup" onClick={this.handlePopupShow}>
                     <h1>{point.spot}, {point.region}, <span role="img" aria-label="marker">📍</span></h1>
                     <h2>{point.country}, {point.region} </h2>
                     <h3>{point.difficulty}, {point.season}</h3>
@@ -75,7 +76,7 @@ class SpotMap extends React.Component {
             </div>
           )
         })}
-        <NavigationControl showZoom position='top-left' className="map-controls" />
+        <NavigationControl showZoom={true} showCompass={true} position="top-left" className="map-controls" />
           </MapGl>
         </div>
       </>
