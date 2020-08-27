@@ -30,7 +30,6 @@ export const createSpot = formData => {
 }
 
 export const editSpot = (id, formData) => {
-  console.log(formData)
   return axios.put(`${baseUrl}/surfspots/${id}`, formData, withHeaders())
 } 
 
@@ -74,12 +73,12 @@ export const editUser = (userId, formData) => {
 }
 
 // -------------------------------- External API Related  -------------------------------- //
-export const getMarineWeatherStatus = () => {
-  return axios.get(`https://api.stormglass.io/v2/weather/point?lat=${this.props.lat}&lng=${this.props.long}&params=airTemperature,seaLevel,swellDirection,swellHeight,waterTemperature,waveDirection,waveHeight`, withMarineHeaders())
+export const getMarineWeatherStatus = (lat, long) => {
+  return axios.get(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${long}&params=airTemperature,seaLevel,swellDirection,swellHeight,waterTemperature,waveDirection,waveHeight`, withMarineHeaders())
 }
 
 
-export const getLocalWeatherStatus = () => {
-  return axios.get(`api.openweathermap.org/data/2.5/weather?lat=${this.props.lat}&lon=${this.props.long}&appid=${process.env.REACT_APP_WEATHER_KEY}`)
+export const getLocalWeatherStatus = (lat, long) => {
+  return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_WEATHER_KEY}`)
 }
 

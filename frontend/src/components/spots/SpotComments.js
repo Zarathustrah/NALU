@@ -36,6 +36,7 @@ class SpotComments extends React.Component {
   }
 
   handleRating = rating => {
+    console.log(this.state.rating)
     this.setState({ rating })
   }
 
@@ -48,11 +49,12 @@ class SpotComments extends React.Component {
   render() {
     const { handleCommentDelete, comment, errors} = this.props
     const { commentData, rating, userProfileImage } = this.state
+    console.log(rating)
 
     return (
       <>
         {isAuthenticated() &&
-          <form onSubmit={(event) => { this.handleSubmit(event, this.state.rating, this.state.commentData) }}>
+          <form onSubmit={(event) => { this.handleSubmit(event, rating, commentData) }}>
             <h1 className="nalu-title">Add Review:</h1>
             <br />
             <article className="media">
@@ -85,7 +87,7 @@ class SpotComments extends React.Component {
                         size={20}
                         half={false}
                         name="rating"
-                        value={parseInt(rating)}
+                        value={parseInt(this.state.rating)}
                         onChange={calcRating => {
                           this.handleRating(calcRating)
                         }}
@@ -124,7 +126,7 @@ class SpotComments extends React.Component {
                     count={5}
                     size={20}
                     half={false}
-                    name="rating"
+                    // name="rating"
                     value={comment.rating}
                     emptyIcon={<i className="far fa-star"></i>}
                     halfIcon={<i className="fa fa-star-half-alt"></i>}
