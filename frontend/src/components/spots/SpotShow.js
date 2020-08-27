@@ -4,7 +4,9 @@ import ReactStars from 'react-rating-stars-component'
 import SpotMiniMap from './SpotMiniMap'
 import SpotComments from './SpotComments'
 
-import { showSingleSpot, deleteSpot, commentSpot, deleteSpotComment, getUser, getLocalWeatherStatus, getMarineWeatherStatus } from '../../lib/api'
+import { showSingleSpot, deleteSpot, commentSpot, deleteSpotComment, getUser, getLocalWeatherStatus, 
+  // getMarineWeatherStatus 
+} from '../../lib/api'
 import { isAuthenticated, isOwner, getUserId } from '../../lib/auth'
 
 class SpotShow extends React.Component {
@@ -35,9 +37,9 @@ class SpotShow extends React.Component {
       console.log(resWeather.data)
       this.setState({ localWeather: resWeather.data })
 
-      const resMarine = await getMarineWeatherStatus(res.data.lat, res.data.long)
-      console.log(resMarine.data)
-      this.setState({ localMarineWeather: resMarine.data })
+      // const resMarine = await getMarineWeatherStatus(res.data.lat, res.data.long)
+      // console.log(resMarine.data)
+      // this.setState({ localMarineWeather: resMarine.data })
 
       if (!loggedIn) {
         this.setState({ spot: res.data, user: '' }, () => {this.handleRating()})
@@ -57,11 +59,11 @@ class SpotShow extends React.Component {
     }
   }
 
-  withMarineHeaders = () => {
-    return {
-      headers: { Authorization: process.env.REACT_APP_STORM }
-    }
-  }
+  // withMarineHeaders = () => {
+  //   return {
+  //     headers: { Authorization: process.env.REACT_APP_STORM }
+  //   }
+  // }
 
   getApi(lat, long) {
     console.log('Lat: ' + lat, 'Long: ' + long)
@@ -163,14 +165,14 @@ class SpotShow extends React.Component {
             <h1>{(localWeather.main.temp - 273.15).toFixed(0)} °C</h1>
             </section>
           </section>
-          <section className="column is-one-third marine-weather">
+          {/* <section className="column is-one-third marine-weather">
             <h1>Marine Weather:</h1>
             <h1>Sea Level: {localMarineWeather.hours[0].seaLevel.meto} Tidal</h1>
             <h1>Swell Direction: {localMarineWeather.hours[0].swellDirection.meteo}</h1>
             <h1>Swell Height: {localMarineWeather.hours[0].swellHeight.meteo} SH</h1>
             <h1>Water Temp: {localMarineWeather.hours[0].waterTemperature.meto}°C</h1>
             <h1>Wave Height: {localMarineWeather.hours[0].waveHeight.meteo} WH</h1>
-          </section> 
+          </section>  */}
               <hr />
           <section className="description-box">
           <h1 className="title-show">Description:</h1>

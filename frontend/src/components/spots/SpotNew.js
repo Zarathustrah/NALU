@@ -41,9 +41,10 @@ handleSubmit = async e => {
 }
 
   render() {
-      const { formData } = this.state
-      console.log(formData)
-      return(
+    const { formData } = this.state
+    console.log(formData)
+    
+    return(
     <main className="section backgoundImage">
       <h1 className="spotHeading">Surf Spot</h1>
       <div className="columns is-mobile">

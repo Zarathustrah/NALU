@@ -20,7 +20,7 @@ import GroupNew from './components/groups/GroupNew'
 import GroupEdit from './components/groups/GroupEdit'
 
 import UserIndex from './components/users/UserIndex'
-import UserShow from './components/users/UserShow'
+// import UserShow from './components/users/UserShow'
 
 import ErrorPage from './components/common/ErrorPage'
 import SecureRoute from './components/common/SecureRoute'
@@ -46,7 +46,7 @@ const App = () => (
         <Route path="/groups/:id" component={GroupShow} /> 
         <Route path="/groups" component={GroupIndex} /> 
 
-        <Route path="/users/:id" component={UserShow} />
+        {/* <Route path="/users/:id" component={UserShow} /> */}
         <Route path="/users" component={UserIndex} />
 
         <Route path="/register" component={Register} />

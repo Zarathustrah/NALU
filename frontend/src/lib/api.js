@@ -73,9 +73,9 @@ export const editUser = (userId, formData) => {
 }
 
 // -------------------------------- External API Related  -------------------------------- //
-export const getMarineWeatherStatus = (lat, long) => {
-  return axios.get(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${long}&params=airTemperature,seaLevel,swellDirection,swellHeight,waterTemperature,waveDirection,waveHeight`, withMarineHeaders())
-}
+// export const getMarineWeatherStatus = (lat, long) => {
+//   return axios.get(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${long}&params=airTemperature,seaLevel,swellDirection,swellHeight,waterTemperature,waveDirection,waveHeight`, withMarineHeaders())
+// }
 
 
 export const getLocalWeatherStatus = (lat, long) => {

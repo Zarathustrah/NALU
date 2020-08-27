@@ -21,6 +21,8 @@ class SpotIndex extends React.Component {
     })
     try {
       const res = await getAllSpots()
+      const searchTerm = this.props.location.search.split('=')[1]
+      this.setState({ hikspots: res.data, searchTerm })
       this.setState({ spots: res.data })
     } catch (err) {
       console.log(err)
