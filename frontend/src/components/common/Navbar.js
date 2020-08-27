@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { logout, isAuthenticated } from '../../lib/auth'
 import { popupNotification } from '../../lib/notification'
-import { getUserID, getAllUsers } from '../../lib/api'
+import { getUserId } from '../../lib/auth'
 
 class Navbar extends React.Component {
   state = { 
@@ -10,18 +10,18 @@ class Navbar extends React.Component {
     spotsOpen: false,
     communityOpen: false,
     accountOpen: false,
-    users: null
+    // users: null
   }
 
-  async componentDidMount() {
-    try {
-      const res = await getAllUsers()
-      this.setState({ users: res.data })
-      console.log(res.data)
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // async componentDidMount() {
+  //   try {
+  //     const res = await getUser()
+  //     this.setState({ users: res.data })
+  //     console.log(res.data)
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
 
   handleNavToggle = tab => {
     if (tab === 'spots') {
@@ -62,11 +62,10 @@ class Navbar extends React.Component {
   }
 
   render() {
-    const { users } = this.state
-    console.log(this.state)
-    if (!users) return null
+    // const { users } = this.state
+    const userID = getUserId()
+    // if (!users) return null
     const { navbarOpen, spotsOpen, communityOpen, accountOpen } = this.state
-    const surferID = getUserID()
 
 
     return (
@@ -104,7 +103,7 @@ class Navbar extends React.Component {
               {isAuthenticated() && <div className={`navbar-item has-dropdown ${accountOpen ? 'is-active' : ''}`} onClick={() => this.handleNavToggle('account')}>
                 <span className="main-nav">Account</span>
                 <div className="navbar-dropdown">
-                <Link to={`/profiles/${users._id}`}><div ClassName="navbar-item nav-color">Profile</div></Link>
+                <Link to={`/profile/${userID}`}><div ClassName="navbar-item nav-color">Profile</div></Link>
                   <span onClick={this.handleLogout} className="navbar-item nav-color">Log Out</span>
                 </div>
               </div>}
