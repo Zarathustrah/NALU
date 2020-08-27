@@ -20,6 +20,7 @@
     "react-map-gl": "^5.2.7",
     "react-mapbox-gl": "^4.8.6",
     "react-notify-toast": "^0.5.1",
+    "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-star-ratings": "^2.3.0",
