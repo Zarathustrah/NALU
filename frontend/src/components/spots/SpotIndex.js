@@ -16,7 +16,6 @@ class SpotIndex extends React.Component {
   }
 
   async componentDidMount() {
-    console.log(this.props)
     window.navigator.geolocation.getCurrentPosition(data => {
       this.setState({ currentLocation: [data.coords.longitude, data.coords.latitude] })
     })
@@ -61,7 +60,6 @@ class SpotIndex extends React.Component {
   
   render() {
     if (!this.state.spots) return null
-    console.log(this.state.spots)
     return (
       <div className="spotsCollection">
         <div className="hero is-medium index">

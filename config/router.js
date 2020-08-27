@@ -33,10 +33,10 @@ router.route('/login')
 
 // --------------------------------  Profiles Related  -------------------------------- //
 
-router.route('/profiles')
+router.route('/profile')
   .get(secureRoute, users.userIndex)
 
-router.route('/profiles/:id')
+router.route('/profile/:id')
   .get(secureRoute, users.userShow)
   .put(secureRoute, users.userUpdate)
 
@@ -45,22 +45,22 @@ router.route('/profiles/:id')
 router.route('/register')
   .post(auth.register)
 
-router.route('/profiles/:id/achieved/:achievedId')
+router.route('/profile/:id/achieved/:achievedId')
   .delete(secureRoute, users.userAchievedSurfSpotsDelete)
 
 // --------------------------------  Profiles Related  -------------------------------- //
 
-router.route('/profiles')
+router.route('/profile')
   .get(secureRoute, users.userIndex)
 
-router.route('/profiles/:id')
+router.route('/profile/:id')
   .get(secureRoute, users.userShow)
   .put(secureRoute, users.userUpdate)
 
-router.route('/profiles/:id/achieved')
+router.route('/profile/:id/achieved')
   .post(secureRoute, users.userAchievedSurfSpotsCreate)
 
-router.route('/profiles/:id/achieved/:achievedId')
+router.route('/profile/:id/achieved/:achievedId')
   .delete(secureRoute, users.userAchievedSurfSpotsDelete)
   
 module.exports = router

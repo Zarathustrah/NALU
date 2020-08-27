@@ -61,15 +61,15 @@ export const loginUser = formData => {
 // --------------------------------  Profiles Related  -------------------------------- //
 
 export const getAllUsers = () => {
-  return axios.get(`${baseUrl}/profiles`, withHeaders())
+  return axios.get(`${baseUrl}/profile`, withHeaders())
 }
 
 export const getUser = userId => {
-  return axios.get(`${baseUrl}/profiles/${userId}`, withHeaders())
+  return axios.get(`${baseUrl}/profile/${userId}`, withHeaders())
 }
 
 export const editUser = (userId, formData) => {
-  return axios.put(`${baseUrl}/profiles/${userId}`, formData, withHeaders())
+  return axios.put(`${baseUrl}/profile/${userId}`, formData, withHeaders())
 }
 
 // -------------------------------- External API Related  -------------------------------- //
