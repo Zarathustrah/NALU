@@ -72,6 +72,10 @@ export const editUser = (userId, formData) => {
   return axios.put(`${baseUrl}/profile/${userId}`, formData, withHeaders())
 }
 
+export const addAchievedSpot = (userId, spotId) => {
+  return axios.post(`${baseUrl}/profile/${userId}/achieved`, spotId, withHeaders())
+}
+
 // -------------------------------- External API Related  -------------------------------- //
 
 export const getMarineWeatherStatus = (lat, long) => {

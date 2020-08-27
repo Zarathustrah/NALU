@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
-import { getAllSpots } from '../../lib/api'
-import { getToken } from '../../lib/auth'
+import Select from 'react-select'
 
+import { getToken } from '../../lib/auth'
 
 class AddAchievedSpot extends React.Component {
   state = {
@@ -21,7 +21,8 @@ class AddAchievedSpot extends React.Component {
       }
       const baseUrl = '/api'
       const res = await axios.get(`${baseUrl}/surfspots`)
-      const resUser = await axios.get(`${baseUrl}/profile/${this.props.userId}`, withHeaders())
+      const resUser = await axios.get(`${baseUrl}/profile/${this.props.id}`, withHeaders())
+      console.log(resUser)
       this.setState({ spots: res.data, achievedSpot: resUser.data.achievedSpot },
         () => {
           this.addSpotOptions()
@@ -33,14 +34,31 @@ class AddAchievedSpot extends React.Component {
 
   addSpotOptions = () => {
     const { spots } = this.state
-    const spotOptions = spots.map(spot => ({ value: }))
+    console.log('addSpotOptionFunction', spots)
+    const spotOptions = spots.map(spot => ({ value: spot._id, label: spot.spot }))
+    this.setState({ spotOptions })
+  }
+
+  handleMultiChange = async (selected) => {
+    const selectedSpot = selected ? { spot: selected.value } : ''
+    this.setState({ selectedSpot })
   }
 
   render() {
-    const { achievedSpot } = this.state
-    console.log(achievedSpot)
+    console.log(this.state.spotOptions)
+    console.log(this.state.selectedSpot)
     return (
-      <h1>FUCK YOU. I FUCKING HATE YOU</h1>
+      <div>
+        <form onSubmit={(event) => this.props.handleSubmit(event, this.state.selectedSpot)} className="columns comp-form" >
+          <Select
+            className="column is-four-fifths"
+            placeholder="Where have you surfed?"
+            options={this.state.spotOptions}
+            onChange={this.handleMultiChange}
+          />
+          <div className="column"> <button type="submit" className="button">+</button></div>
+        </form>
+      </div >
     )
   }
 }

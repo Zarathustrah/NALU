@@ -1,6 +1,9 @@
 import React from 'react'
-import { getUser } from '../../lib/api'
+import { getUser, addAchievedSpot } from '../../lib/api'
 import { isOwner } from '../../lib/auth'
+
+import AddAchievedSpot from './AddAchievedSpot'
+import HandleCompletedSpot from './HandleCompletedSpot'
 
 class Profile extends React.Component {
   state= {
@@ -17,9 +20,36 @@ class Profile extends React.Component {
     }
   }
 
+  addAchievedSurfSpot = async (e, chosenSpot ) => {
+    e.preventDefault()
+    try {
+      const userId = this.state.users._id
+      console.log(userId)
+      console.log('state', this.state)
+      await addAchievedSpot(userId, chosenSpot)
+      const res = await getUser(userId)
+      this.setState({ users: res.data })
+    } catch (err) {
+      console.log(err.response)
+    }
+  }
+
   render() {
     const { users } = this.state
     if (!users) return null
+
+    let achievedSurfSpot
+    if (users.achievedSurfSpot) {
+      if (users.achievedSurfSpot.length > 0 ) {
+        achievedSurfSpot = users.achievedSurfSpot.map(spot => {
+          return <HandleCompletedSpot key={spot._id} {...spot} handleClick={this.removeSpot} edit={this.state.edit} />
+        })
+      } else {
+        if (isOwner(this.state.users._id)) {
+          achievedSurfSpot = <div>Add your surf spots!</div>
+        } else { achievedSurfSpot = <div>You've not surfed anywhere... </div> }
+      }
+    }
     
     return (
       <section className="section">
@@ -89,6 +119,17 @@ class Profile extends React.Component {
                   placeholder=""
                   name="visited"
                 />
+                <div className="column columns is-multiline">
+                  {isOwner(users._id) &&
+                    <div className="column is-full"> 
+                      <AddAchievedSpot 
+                        id={users._id} 
+                        handleSubmit={this.addAchievedSurfSpot} 
+                      />
+                    </div>
+                  }
+                  <div className="completed">{achievedSurfSpot}</div>
+                  </div>
               </article>
             </div>
           </div>

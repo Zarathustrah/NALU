@@ -45,15 +45,15 @@ class ProfileForm extends React.Component {
 export default ProfileForm
 
 
-let completedSurfSpots
-if (profile.completedHikes) {
-  if (profile.completedHikes.length > 0) {
-    completedHikes = profile.completedHikes.map(hike => {
-      return <ProfileComplete key={hike._id} {...hike} handleClick={this.removeHike} edit={this.state.edit} />
-    })
-  } else {
-    if (isOwner(this.state.profile._id)) {
-      completedHikes = <div>No new hikes yet. Add a new one below...</div>
-    } else { completedHikes = <div> No completed hikes added</div> }
-  }
-}
+// let achievedSurfSpot
+// if (profile.achievedSurfSpot) {
+//   if (profile.achievedSurfSpot.length > 0) {
+//     achievedSurfSpot = profile.achievedSurfSpot.map(hike => {
+//       return <ProfileComplete key={hike._id} {...hike} handleClick={this.removeSpot} edit={this.state.edit} />
+//     })
+//   } else {
+//     if (isOwner(this.state.profile._id)) {
+//       achievedSurfSpot = <div>You've not surfed anywhere?</div>
+//     } else { achievedSurfSpot = <div> </div> }
+//   }
+// }
