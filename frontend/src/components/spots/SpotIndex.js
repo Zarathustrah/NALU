@@ -16,13 +16,13 @@ class SpotIndex extends React.Component {
   }
 
   async componentDidMount() {
-    console.log(this.props)
     window.navigator.geolocation.getCurrentPosition(data => {
       this.setState({ currentLocation: [data.coords.longitude, data.coords.latitude] })
     })
     try {
       const res = await getAllSpots()
-      this.setState({ spots: res.data })
+      const searchTerm = this.props.location.search.split('=')[1]
+      this.setState({ spots: res.data, searchTerm })
     } catch (err) {
       console.log(err)
     }
@@ -59,7 +59,6 @@ class SpotIndex extends React.Component {
   
   render() {
     if (!this.state.spots) return null
-    console.log(this.state.spots)
     return (
       <div className="spotsCollection">
         <div className="hero is-medium index">
@@ -74,6 +73,7 @@ class SpotIndex extends React.Component {
               type="text"
               placeholder="Type the surf spots? Country? Continent? Difficulty? Wave Type or Season..."
               onChange={this.handleSearch}
+              value={this.state.searchTerm}
             />
          <div className="view-change buttons field has-addons maps">
           <p className="control list-view-button">

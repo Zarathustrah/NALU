@@ -3,7 +3,6 @@ const { notFound, unauthorized } = require('../lib/errorMessage')
 
 async function userIndex(req, res, next) {
   try {
-    // console.log('I reached this stage')
     const users = await User.find()
     res.status(200).json(users)
   } catch (err) {
@@ -15,20 +14,6 @@ async function userIndex(req, res, next) {
 async function userShow(req, res, next) {
   try {
     const user = await User.findById(req.params.id).populate('achievedSurfSpot')
-    // ! start -> figure out the path
-    // .populate('joinedGroups')
-    // ! end
-    // if (user.joinedGroups) {
-    //   user.joinedGroups = user.joinedGroups.flatMap(item => item._id).reduce((arr, curr) => {
-    //     if (arr.length === 0) {
-    //       arr.push(curr)
-    //     }
-    //     if (!arr.find(item => item._id === curr._id)) {
-    //       arr.push(curr)
-    //     }
-    //     return arr
-    //   }, [])
-    // }
     if (!user) throw new Error(notFound)
     res.status(200).json(user)
   } catch (err) {
@@ -63,10 +48,8 @@ async function userAchievedSurfSpotsCreate(req, res, next) {
     console.log(user)
     console.log(user.achievedSurfSpot)
     if (user.achievedSurfSpot.some(spot => spot.spot.equals(req.body.spot))) throw new Error('Already added') 
-
     user.achievedSurfSpot.push(req.body)
     await user.save()
-
     res.status(201).json(user)
   } catch (err) {
     next(err)
@@ -77,12 +60,12 @@ async function userAchievedSurfSpotsCreate(req, res, next) {
 
 async function userAchievedSurfSpotsDelete(req, res, next) {
   try {
-    const achievedId = req.params.achievedId
-
+    const completedId = req.params.completedId
+    console.log(completedId)
     const user = await User.findById(req.params.id)
     if (!user) throw new Error(notFound)
 
-    const achievedSurfSpotsToRemove = user.achievedSurfSpot.id(achievedId)
+    const achievedSurfSpotsToRemove = user.achievedSurfSpot.id(completedId)
     if (!achievedSurfSpotsToRemove) throw new Error(notFound)
 
 

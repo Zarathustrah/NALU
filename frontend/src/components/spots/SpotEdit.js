@@ -54,8 +54,8 @@ class SpotEdit extends React.Component {
     try {
       console.log('🚨 I reached that stage 🚨')
       console.log(this.state.formData) // <-- so we can just view it here
-      await editSpot(spotId, this.state.formData) // <-- this doesn't return anything called form data
-      console.log(this.state.formData)
+      const res = await editSpot(spotId, this.state.formData) // <-- this doesn't return anything called form data
+      console.log(res.data) // <--  lets see the response
       this.props.history.push(`/surfspots/${spotId}`) // <-- you can just use your spot Id here
     } catch (err) {
       this.setState({ errors: err.response.data.errors })

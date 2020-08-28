@@ -1,7 +1,10 @@
 import React from 'react'
 import Profile from './Profile'
 import { registerUser } from '../../lib/api'
+
+
 class ProfileForm extends React.Component {
+
   state = {
     formData: {
       username: '',
@@ -10,6 +13,7 @@ class ProfileForm extends React.Component {
       achievedSurfSpot: ''
     }
   }
+  
   async componentDidMount() {
     const userId = this.props.match.params.id
     console.log(userId)
@@ -36,7 +40,10 @@ class ProfileForm extends React.Component {
     )  
   }
 }
+
 export default ProfileForm
+
+
 // let achievedSurfSpot
 // if (profile.achievedSurfSpot) {
 //   if (profile.achievedSurfSpot.length > 0) {

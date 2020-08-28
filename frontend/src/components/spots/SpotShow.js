@@ -25,9 +25,8 @@ class SpotShow extends React.Component {
     try {
       const res = await showSingleSpot(this.props.match.params.id)
       const loggedIn = await isAuthenticated()
-      console.log(res.data)
       const resWeather = await getLocalWeatherStatus(res.data.lat, res.data.long)
-      console.log(resWeather.data)
+      // console.log(resWeather.data)
       this.setState({ localWeather: resWeather.data })
       const resMarine = await getMarineWeatherStatus(res.data.lat, res.data.long)
       console.log(resMarine.data)
@@ -100,8 +99,6 @@ class SpotShow extends React.Component {
   render() {
     if (!this.state.spot) return null
     const { spot, averageRating, localMarineWeather, localWeather } = this.state
-    console.log(averageRating)
-    console.log(localWeather)
     return (
       <div className="SpotShow box">
         <div className="hero is-medium is-success">
@@ -120,7 +117,8 @@ class SpotShow extends React.Component {
                 count={5}
                 size={20}
                 half={false}
-                value={parseInt(averageRating)}
+                // value={parseInt(averageRating)}
+                value={4}
                 emptyIcon={<i className="far fa-star"></i>}s
                 fullIcon={<i className="fa fa-star"></i>}
                 // activeColor="#ffd700"
@@ -136,14 +134,14 @@ class SpotShow extends React.Component {
             <h1>{(localWeather.main.temp - 273.15).toFixed(0)} °C</h1>
             </section>
           </section>
-          <section className="column is-one-third marine-weather">
+          {/* <section className="column is-one-third marine-weather">
             <h1>Marine Weather:</h1>
             <h1>Sea Level: {localMarineWeather.hours[0].seaLevel.meto} Tidal</h1>
             <h1>Swell Direction: {localMarineWeather.hours[0].swellDirection.meteo}</h1>
             <h1>Swell Height: {localMarineWeather.hours[0].swellHeight.meteo} SH</h1>
             <h1>Water Temp: {localMarineWeather.hours[0].waterTemperature.meto}°C</h1>
             <h1>Wave Height: {localMarineWeather.hours[0].waveHeight.meteo} WH</h1>
-          </section> 
+          </section>  */}
               <hr />
           <section className="description-box">
           <h1 className="title-show">Description:</h1>

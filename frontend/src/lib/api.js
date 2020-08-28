@@ -52,13 +52,21 @@ export const getUser = userId => {
 export const editUser = (userId, formData) => {
   return axios.put(`${baseUrl}/profile/${userId}`, formData, withHeaders())
 }
+
 export const addAchievedSpot = (userId, spotId) => {
   return axios.post(`${baseUrl}/profile/${userId}/achieved`, spotId, withHeaders())
 }
+
+export const deleteAcheivedSpot = (userId, linkName, spotId) => {
+  return axios.delete(`${baseUrl}/profile/${userId}/${linkName}/${spotId}`, withHeaders())
+}
+
 // -------------------------------- External API Related  -------------------------------- //
+
 export const getMarineWeatherStatus = (lat, long) => {
   return axios.get(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${long}&params=airTemperature,seaLevel,swellDirection,swellHeight,waterTemperature,waveDirection,waveHeight`, withMarineHeaders())
 }
 export const getLocalWeatherStatus = (lat, long) => {
   return axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_WEATHER_KEY}`)
 }
+

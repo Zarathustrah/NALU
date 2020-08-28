@@ -15,6 +15,7 @@ class Register extends React.Component {
     },
     errors: {}
   }
+  
   handleChange = e => {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     const errors = { ...this.state.errors, [e.target.name]: '' }
@@ -58,20 +59,20 @@ class Register extends React.Component {
                       <FontAwesomeIcon icon={faUser} />
                     </span>
                   </div>
-                  {this.state.errors.username && <small className="help is-danger">{this.state.errors.username}</small>}
-                </div>
-                <div className="field">
-                  <label className="label">Email</label>
-                  <div className="control has-icons-left">
-                    <input
-                      className={`input ${this.state.errors.email ? 'is-danger' : ''}`}
-                      placeholder="Email"
-                      name="email"
-                      onChange={this.handleChange}
-                    />
-                    <span className="icon is-small is-left">
-                      <FontAwesomeIcon icon={faEnvelope} />
-                    </span>
+                  <div className="field">
+                    <label className="label">Email</label>
+                    <div className="control has-icons-left">
+                      <input
+                        className={`input ${this.state.errors.email ? 'is-danger' : ''}`}
+                        placeholder="Email"
+                        name="email"
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <FontAwesomeIcon icon={faEnvelope} />
+                      </span>
+                    </div>
+                    {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
                   </div>
                   {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
                 </div>
@@ -104,21 +105,21 @@ class Register extends React.Component {
                       <FontAwesomeIcon icon={faLock} />
                     </span>
                   </div>
-                  {this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small>}
-                </div>
-                <div className="field">
-                  <label className="label">Password Confirmation</label>
-                  <div className="control has-icons-left">
-                    <input
-                      className={`input ${this.state.errors.passwordConfirmation ? 'is-danger' : ''}`}
-                      type="password"
-                      placeholder="Password Confirmation"
-                      name="passwordConfirmation"
-                      onChange={this.handleChange}
-                    />
-                    <span className="icon is-small is-left">
-                      <FontAwesomeIcon icon={faLock} />
-                    </span>
+                  <div className="field">
+                    <label className="label">Password Confirmation</label>
+                    <div className="control has-icons-left">
+                      <input
+                        className={`input ${this.state.errors.passwordConfirmation ? 'is-danger' : ''}`}
+                        type="password"
+                        placeholder="Password Confirmation"
+                        name="passwordConfirmation"
+                        onChange={this.handleChange}
+                      />
+                      <span className="icon is-small is-left">
+                        <FontAwesomeIcon icon={faLock} />
+                      </span>
+                    </div>
+                    {this.state.errors.passwordConfirmation && <small className="help is-danger">{this.state.errors.passwordConfirmation}</small>}
                   </div>
                   {this.state.errors.passwordConfirmation && <small className="help is-danger">{this.state.errors.passwordConfirmation}</small>}
                 </div>
@@ -133,9 +134,9 @@ class Register extends React.Component {
                   </p>
                 </div>
               </form>
+              </div>
             </div>
-          </div>
-      </section>
+        </section>
       </section>
       </>
     )

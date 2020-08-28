@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { logout, isAuthenticated } from '../../lib/auth'
+import { logout, isAuthenticated, getUserId } from '../../lib/auth'
 import { popupNotification } from '../../lib/notification'
 
 class Navbar extends React.Component {
@@ -9,6 +9,7 @@ class Navbar extends React.Component {
     spotsOpen: false,
     communityOpen: false,
     accountOpen: false,
+    // users: null
   }
 
   handleNavToggle = tab => {
@@ -50,8 +51,11 @@ class Navbar extends React.Component {
   }
 
   render() {
+    // const { users } = this.state
+    const userID = getUserId()
+    // if (!users) return null
     const { navbarOpen, spotsOpen, communityOpen, accountOpen } = this.state
-    // const surferID = getUserID()
+
 
     return (
       
@@ -75,7 +79,7 @@ class Navbar extends React.Component {
                   <Link to="/surfspots/new"><div className="navbar-item">Add New Spots</div></Link>
                 </div>
               </div>}
-              {!isAuthenticated() && <Link to="/groups" className="navbar-item">Community</Link>}
+              {/* {!isAuthenticated() && <Link to="/groups" className="navbar-item">Community</Link>}
               {isAuthenticated() && <div className={`navbar-item has-dropdown ${communityOpen ? 'is-active' : ''}`} onClick={() => this.handleNavToggle('community')}>
                 <span className="main-nav">Community</span>
                 <div className="navbar-dropdown">
@@ -83,12 +87,12 @@ class Navbar extends React.Component {
                   <Link to="/surfspots"><div className="navbar-item nav-color">Groups</div></Link>
                   <Link to="/surfspots/register"><div className="navbar-item nav-color">Add New Group</div></Link>
                 </div>
-              </div>}
+              </div>} */}
               {!isAuthenticated() && <Link to="/login" className="navbar-item main-nav">Log In</Link>}
               {isAuthenticated() && <div className={`navbar-item has-dropdown ${accountOpen ? 'is-active' : ''}`} onClick={() => this.handleNavToggle('account')}>
                 <span className="main-nav">Account</span>
                 <div className="navbar-dropdown">
-                  <Link to={`/profile`}><div className="navbar-item nav-color">Profile</div></Link>
+                <Link to={`/profile/${userID}`}><div className="navbar-item nav-color">Profile</div></Link>
                   <span onClick={this.handleLogout} className="navbar-item nav-color">Log Out</span>
                 </div>
               </div>}

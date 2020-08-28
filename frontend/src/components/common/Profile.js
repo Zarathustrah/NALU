@@ -1,47 +1,86 @@
 import React from 'react'
-import { getUser, addAchievedSpot } from '../../lib/api'
+import { getUser, getAllSpots, addAchievedSpot, deleteAcheivedSpot } from '../../lib/api'
 import { isOwner } from '../../lib/auth'
+
 import AddAchievedSpot from './AddAchievedSpot'
 import HandleCompletedSpot from './HandleCompletedSpot'
+
 class Profile extends React.Component {
   state= {
     users: null,
-    edit: false
+    spots: null,
   }
+
   async componentDidMount() {
     try {
       const res = await getUser(this.props.match.params.id)
-      this.setState({ users: res.data })
-      console.log(res.data)
+      const resSpot = await getAllSpots()
+      this.setState({ spots: resSpot.data, users: res.data })
+      console.log('spots array', resSpot.data)
+      // console.log(res.data)
     } catch (err) {
       console.log(err)
     }
   }
-  addAchievedSurfSpot = async (e, chosenSpot ) => {
+
+  addAchievedSurfSpot = async (e, spotId ) => {
     e.preventDefault()
     try {
       const userId = this.state.users._id
-      console.log(userId)
-      console.log('state', this.state)
-      await addAchievedSpot(userId, chosenSpot)
+      // console.log(userId)
+      // console.log('state', this.state)
+      await addAchievedSpot(userId, spotId)
       const res = await getUser(userId)
-      this.setState({ users: res.data })
+      this.setState({ users: res.data }) 
+      
     } catch (err) {
       console.log(err.response)
     }
   }
-  enableEdit = () => {
-    const editTerm = this.state.editTerm === 'Edit' ? 'Close edit' : 'Edit'
-    this.setState({ edit: !this.state.edit, editTerm })
+
+  removeCompletedSpot = async (e) => {
+    const linkName = e.target.name
+    const id = e.target.value
+
+    try {
+      const userId = this.state.users._id
+
+      await deleteAcheivedSpot(userId, linkName, id)
+      const res = await getUser(userId)
+      this.setState({ users: res.data })
+
+    } catch (err) {
+      console.log(err)
+    }
   }
+
   render() {
-    const { users } = this.state
+    const { users, spots } = this.state
     if (!users) return null
+
     let achievedSurfSpot
-    if (users.achievedSurfSpot) {
-      if (users.achievedSurfSpot.length > 0 ) {
-        achievedSurfSpot = users.achievedSurfSpot.map(spot => {
-          return <HandleCompletedSpot key={spot._id} {...spot} handleClick={this.removeSpot} edit={this.state.edit} />
+    console.log('achievedSurfSpot', achievedSurfSpot)
+    console.log('profile, users', users)
+
+    console.log('usersachievedSurfSpot', users.achievedSurfSpot)
+    console.log('profile spot',this.state.spots);
+    let filteredSpots = [];
+    if (spots && users){
+      filteredSpots = spots.filter(spot => {
+        let isUserSpot = false
+        users.achievedSurfSpot.forEach(surfSpotId =>{
+          if (surfSpotId.spot === spot._id) {
+            isUserSpot = true
+          }
+        })
+        return isUserSpot
+      });
+    }
+      console.log('filteredSpots', filteredSpots)
+      if (filteredSpots) {
+      if (filteredSpots.length > 0 ) {
+        achievedSurfSpot = filteredSpots.map(spot => {
+          return <HandleCompletedSpot key={spot._id} {...spot} handleClick={this.removeCompletedSpot} edit={this.state.edit} />
         })
       } else {
         if (isOwner(this.state.users._id)) {
@@ -49,6 +88,8 @@ class Profile extends React.Component {
         } else { achievedSurfSpot = <div>You've not surfed anywhere... </div> }
       }
     }
+
+    
     return (
       <section className="section">
         <h1 className="title is-3 heading">My Profile</h1>

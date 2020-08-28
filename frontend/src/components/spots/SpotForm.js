@@ -35,17 +35,17 @@ const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
         </div>
         </div>
         <div className="field">
-          <label className="label">Origin</label>
+          <label className="label">Spot</label>
           <p className="control is-expanded">  
-          <div className="control has-icons-left text">
+          <div className="control has-icons-left">
             <input
               className="input user"
-              placeholder="Origin"
-              name="origin"
+              placeholder="Spot"
+              name="spot"
               onChange={handleChange}
-              value={formData.origin}
+              value={formData.spot}
             />
-            <span className="icon is-small is-left text">
+            <span className="icon is-small is-left">
               <FontAwesomeIcon icon={faGlobe} />
             </span>
           </div>
@@ -200,23 +200,6 @@ const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
             />
               <span className="icon is-small is-left text">
               <FontAwesomeIcon icon={faGlobe} />
-            </span>
-          </div>
-          </p>
-        </div>
-        <div className="field">
-          <label className="label">spot</label>
-          <p className="control is-expanded">  
-          <div className="control has-icons-left text">
-            <input
-              className="input user"
-              placeholder="spot"
-              name="spot"
-              onChange={handleChange}
-              value={formData.lat}
-            />
-            <span className="icon is-small is-left text">
-              <FontAwesomeIcon icon={faPortrait} />
             </span>
           </div>
           </p>

@@ -1,8 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 import Select from 'react-select'
+
 import { getToken } from '../../lib/auth'
 import SpotIndex from '../spots/SpotIndex'
+
 class AddAchievedSpot extends React.Component {
   state = {
     spots: null,
@@ -39,10 +41,11 @@ class AddAchievedSpot extends React.Component {
     const selectedSpot = selected ? { spot: selected.value } : ''
     this.setState({ selectedSpot })
   }
+
   render() {
-    console.log(this.state.spotOptions)
-    console.log(this.state.selectedSpot)
-    console.log(this.state.spots)
+    // console.log(this.state.spotOptions)
+    // console.log(this.state.selectedSpot)
+    // console.log(this.state.spots)
     return (
       <div>
         <form onSubmit={(event) => this.props.handleSubmit(event, this.state.selectedSpot)} className="columns comp-form" >
