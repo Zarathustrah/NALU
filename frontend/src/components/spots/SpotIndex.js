@@ -22,8 +22,7 @@ class SpotIndex extends React.Component {
     try {
       const res = await getAllSpots()
       const searchTerm = this.props.location.search.split('=')[1]
-      this.setState({ hikspots: res.data, searchTerm })
-      this.setState({ spots: res.data })
+      this.setState({ spots: res.data, searchTerm })
     } catch (err) {
       console.log(err)
     }
@@ -74,6 +73,7 @@ class SpotIndex extends React.Component {
               type="text"
               placeholder="Type the surf spots? Country? Continent? Difficulty? Wave Type or Season..."
               onChange={this.handleSearch}
+              value={this.state.searchTerm}
             />
           </div>
         </div>

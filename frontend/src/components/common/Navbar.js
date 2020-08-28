@@ -79,7 +79,7 @@ class Navbar extends React.Component {
                   <Link to="/surfspots/new"><div className="navbar-item">Add New Spots</div></Link>
                 </div>
               </div>}
-              {!isAuthenticated() && <Link to="/groups" className="navbar-item">Community</Link>}
+              {/* {!isAuthenticated() && <Link to="/groups" className="navbar-item">Community</Link>}
               {isAuthenticated() && <div className={`navbar-item has-dropdown ${communityOpen ? 'is-active' : ''}`} onClick={() => this.handleNavToggle('community')}>
                 <span className="main-nav">Community</span>
                 <div className="navbar-dropdown">
@@ -87,7 +87,7 @@ class Navbar extends React.Component {
                   <Link to="/surfspots"><div className="navbar-item nav-color">Groups</div></Link>
                   <Link to="/surfspots/register"><div className="navbar-item nav-color">Add New Group</div></Link>
                 </div>
-              </div>}
+              </div>} */}
               {!isAuthenticated() && <Link to="/login" className="navbar-item main-nav">Log In</Link>}
               {isAuthenticated() && <div className={`navbar-item has-dropdown ${accountOpen ? 'is-active' : ''}`} onClick={() => this.handleNavToggle('account')}>
                 <span className="main-nav">Account</span>

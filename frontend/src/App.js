@@ -16,10 +16,10 @@ import SpotEdit from './components/spots/SpotEdit'
 
 // import SpotMap from './components/spots/SpotMap'
 
-import GroupIndex from './components/groups/GroupIndex'
-import GroupShow from './components/groups/GroupShow'
-import GroupNew from './components/groups/GroupNew'
-import GroupEdit from './components/groups/GroupEdit'
+// import GroupIndex from './components/groups/GroupIndex'
+// import GroupShow from './components/groups/GroupShow'
+// import GroupNew from './components/groups/GroupNew'
+// import GroupEdit from './components/groups/GroupEdit'
 
 import UserIndex from './components/users/UserIndex'
 // import UserShow from './components/users/UserShow'
@@ -43,10 +43,10 @@ const App = () => (
         <Route path="/surfspots" component={SpotIndex} />
         {/* <Route path="/surfspots/map" component={SpotMap} />   */}
 
-        <Route path="/groups/:id/edit" component={GroupEdit} /> 
+        {/* <Route path="/groups/:id/edit" component={GroupEdit} /> 
         <Route path="/groups/new" component={GroupNew} /> 
         <Route path="/groups/:id" component={GroupShow} /> 
-        <Route path="/groups" component={GroupIndex} /> 
+        <Route path="/groups" component={GroupIndex} />  */}
 
         {/* <Route path="/users/:id" component={UserShow} /> */}
         <Route path="/users" component={UserIndex} />

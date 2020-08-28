@@ -1,23 +1,19 @@
 import React from 'react'
 import { getAllSpots } from '../../lib/api'
 
-
 class Home extends React.Component {
   state = {
       search: ''
     }
 
-
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value })
   }
   
-
   handleSubmit = event => {
     event.preventDefault()
     this.props.history.push(`/surfspots?search=${this.state.search}`)
   }
-
 
   render(){
     return (
@@ -34,12 +30,12 @@ class Home extends React.Component {
             <form onSubmit={this.handleSubmit}>
             <p className="control is-expanded">
             <input 
-            className="input is-rounded is-primary" 
-            type="text" 
-            placeholder="Enter a Destination"
-            name="search" 
-            onChange={this.handleChange}
-            value={this.state.search}
+              className="input is-rounded is-primary" 
+              type="text" 
+              placeholder="Enter a Destination"
+              name="search" 
+              onChange={this.handleChange}
+              value={this.state.search}
             />
             </p>
             <p className="control">
