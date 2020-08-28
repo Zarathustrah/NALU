@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheese, faGlobe } from '@fortawesome/free-solid-svg-icons'
 
 const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
-
   return (
     <div className="columns">
       <form 
@@ -18,7 +17,7 @@ const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
             <label className="label">Continent</label>
             <div className="control is-expanded">
             <div className="select is-fullwidth">
-            <select name="continent dropdown" onChange={handleChange} value={formData.value} defaultValue="">
+            <select name="continent" onChange={handleChange} value={formData.value} defaultValue="">
             <span className="icon is-small is-left">
               <FontAwesomeIcon icon={faCheese} />
           </span>
@@ -34,23 +33,23 @@ const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
           </div>
         </div>
         </div>
-        {/* <div className="field">
-          <label className="label">Origin</label>
+        <div className="field">
+          <label className="label">Spot</label>
           <p className="control is-expanded">  
           <div className="control has-icons-left">
             <input
               className="input user"
-              placeholder="Origin"
-              name="origin"
+              placeholder="Spot"
+              name="spot"
               onChange={handleChange}
-              value={formData.origin}
+              value={formData.spot}
             />
             <span className="icon is-small is-left">
               <FontAwesomeIcon icon={faGlobe} />
             </span>
           </div>
           </p>
-        </div> */}
+        </div>
         <div className="field">
           <label className="label">Region</label>
           <p className="control is-expanded">  
@@ -208,6 +207,6 @@ const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
   </main>
   </form>
 </div>
-    )
+)
 }
 export default SpotForm

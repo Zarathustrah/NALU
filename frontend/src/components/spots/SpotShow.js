@@ -31,10 +31,9 @@ class SpotShow extends React.Component {
     try {
       const res = await showSingleSpot(this.props.match.params.id)
       const loggedIn = await isAuthenticated()
-      console.log(res.data)
 
       const resWeather = await getLocalWeatherStatus(res.data.lat, res.data.long)
-      console.log(resWeather.data)
+      // console.log(resWeather.data)
       this.setState({ localWeather: resWeather.data })
 
       // const resMarine = await getMarineWeatherStatus(res.data.lat, res.data.long)
@@ -126,10 +125,7 @@ class SpotShow extends React.Component {
 
     if (!this.state.spot) return null
     const { spot, averageRating, localMarineWeather, localWeather } = this.state
-    console.log(averageRating)
 
-
-    console.log(localWeather)
     return (
       <div className="SpotShow box">
         <div className="hero is-medium is-success">

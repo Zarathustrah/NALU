@@ -3,28 +3,15 @@ import { Link } from 'react-router-dom'
 
 const HandleCompletedSpot = (props) => {
 
-  const { edit } = props
-  console.log('HandleCompletedSpot edit', edit)
-  console.log('HandleCompletedSpot id', props._id)
-  console.log('HandleCompletedSpot spot', props.spot)
   console.log('HandleCpmpletedSpot image', props.image)
+
   return (
     <div className="column is-full fav-comp">
-        <div className="columns">
-        <Link to={`/surfspots/${props.spot}`}>
-          <img className="column is-three-fifths group-image" src={props.spot.image} height="50px" width="70px" alt="surfSpot Img"/>
-        </Link><div className="column">
-          <div>
-            <Link to={`/surfspots/${props.spot}`}><p>{props.spot.name}</p></Link>
-              {edit && <button
-                className="button remove"
-                onClick={props.handleClick}
-                value={props._id}
-                name="completed"
-              >Remove</button>}
-            </div>
-          </div>
-        </div>
+      <div className="columns">
+      <Link to={`/surfspots/${props._id}`}>
+        <img className="column is-three-fifths group-image" src={props.image} height="50px" width="70px" alt="surfSpot Img"/>
+      </Link>
+      </div>
     </div>
   )
 }

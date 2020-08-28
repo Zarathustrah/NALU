@@ -65,7 +65,7 @@ async function userAchievedSurfSpotsDelete(req, res, next) {
     const user = await User.findById(req.params.id)
     if (!user) throw new Error(notFound)
 
-    const achievedSurfSpotsToRemove = user.achievedSurfSpot.id(achievedId)
+    const achievedSurfSpotsToRemove = user.achievedSurfSpot.id(completedId)
     if (!achievedSurfSpotsToRemove) throw new Error(notFound)
 
 

@@ -76,6 +76,10 @@ export const addAchievedSpot = (userId, spotId) => {
   return axios.post(`${baseUrl}/profile/${userId}/achieved`, spotId, withHeaders())
 }
 
+export const deleteAcheivedSpot = (userId, linkName, spotId) => {
+  return axios.delete(`${baseUrl}/profile/${userId}/${linkName}/${spotId}`, withHeaders())
+}
+
 // -------------------------------- External API Related  -------------------------------- //
 
 export const getMarineWeatherStatus = (lat, long) => {
