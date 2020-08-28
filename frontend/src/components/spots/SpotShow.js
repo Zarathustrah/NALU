@@ -145,7 +145,8 @@ class SpotShow extends React.Component {
                 count={5}
                 size={20}
                 half={false}
-                value={parseInt(averageRating)}
+                // value={parseInt(averageRating)}
+                value={4}
                 emptyIcon={<i className="far fa-star"></i>}s
                 fullIcon={<i className="fa fa-star"></i>}
                 // activeColor="#ffd700"
