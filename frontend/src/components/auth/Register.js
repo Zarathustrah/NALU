@@ -76,6 +76,21 @@ class Register extends React.Component {
                   {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
                 </div>
                 <div className="field">
+                  <label className="label">Profile Picture</label>
+                  <div className="control has-icons-left">
+                    <input
+                      className={`input ${this.state.errors.email ? 'is-danger' : ''}`}
+                      placeholder="profileImage"
+                      name="profileImage"
+                      onChange={this.handleChange}
+                    />
+                    <span className="icon is-small is-left">
+                      <FontAwesomeIcon icon={faEnvelope} />
+                    </span>
+                  </div>
+                  {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
+                </div>
+                <div className="field">
                   <label className="label">Password</label>
                   <div className="control has-icons-left">
                     <input
