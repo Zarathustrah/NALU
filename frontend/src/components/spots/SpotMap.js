@@ -1,14 +1,11 @@
 import React from 'react'
 import MapGl from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-
 import { getAllSpots } from '../../lib/api'
 import { Popup, NavigationControl } from 'react-map-gl'
 import { Link } from 'react-router-dom'
 
-
 class SpotMap extends React.Component {
-
   state = {
     surfPoints: [],
     viewport: {
@@ -19,7 +16,6 @@ class SpotMap extends React.Component {
       pitch: 0
     }
   }
-
   async componentDidMount() {
     try {
       const res = await getAllSpots()
@@ -28,7 +24,6 @@ class SpotMap extends React.Component {
       console.log(err)
     }
   }
-
   handlePopupShow = e => {
     if (e.currentTarget.className === "text-popup") {
       e.currentTarget.className = "card-popup"
@@ -36,19 +31,18 @@ class SpotMap extends React.Component {
       e.currentTarget.className = "text-popup"
     } 
   }
-
   render() {
     const { surfPoints, viewport } = this.state
     return (
       <>
-        <h1 className="julien">Fuck off</h1>
+        {/* <h1 className="julien">Fuck off</h1> */}
         <div className="spotMap box">
           <MapGl
             {...viewport}
             mapboxApiAccessToken={process.env.REACT_APP_MAPTOK}
             height={'100vh'}
             width={'100vw'}
-            mapStyle="mapbox://styles/heybt/cke9wjydl4lb719p30xbp38b3"
+            mapStyle="mapbox://styles/mapbox/streets-v11"
             onViewportChange={viewport => this.setState({ viewport })}
             zoom={viewport.zoom}
             scrollZoom={false}
@@ -83,7 +77,4 @@ class SpotMap extends React.Component {
     )
   }
 }
-
-
-
 export default SpotMap

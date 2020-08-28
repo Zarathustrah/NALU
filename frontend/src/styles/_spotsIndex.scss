@@ -12,7 +12,32 @@
 .title.nalu{
   text-align: center;
   color: white;
-  font-size: 60px;
+  font-size: 75px;
   -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0.6,0.6,0.6,0.6));
 }
+.input.is-primary.is-rounded.indexpage{
+border-radius: 290486px;
+    padding-left: calc(1.125em - 1px);
+    padding-right: calc(1.125em - 1px);
+}
 
+.view-change.buttons.field.has-addons.maps{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: inherit;
+  padding-left: 1%;
+}
+.field.box.index-search{
+  display: block;
+  align-content: flex-end;
+
+}
+.control.index-search-bar{
+display: flex;
+flex-direction: row;
+
+}
+.has-bg-img{
+  display: flex;
+  align-self: center;
+}

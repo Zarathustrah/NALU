@@ -5,13 +5,6 @@ import { popupNotification } from '../../lib/notification'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 // import HeroBanner from '../common/HeroBanner'
-
-<<<<<<< HEAD
-// import HeroBanner from '../common/HeroBanner'
-
-
-=======
->>>>>>> development
 class Register extends React.Component {
   state = {
     data: {
@@ -27,10 +20,8 @@ class Register extends React.Component {
     const errors = { ...this.state.errors, [e.target.name]: '' }
     this.setState({ data, errors })
   }
-
   handleSubmit = async e => {
     e.preventDefault()
-
     try {
       const res = await registerUser(this.state.data)
       console.log(res.data)
@@ -50,7 +41,7 @@ class Register extends React.Component {
         <section className="hero is-fullheight banner">
         <section className="section is-large">
           <div className="container">
-          <h1 className="register">Join The Crew</h1>
+          <h1 className=" title is-1 register">Join The Crew</h1>
             <div className="columns">
               <form onSubmit={this.handleSubmit} className="column is-half is-offset-one-quarter box change" >
                 <div className="field">
@@ -61,6 +52,7 @@ class Register extends React.Component {
                       placeholder="Username"
                       name="username"
                       onChange={this.handleChange}
+                      information
                     />
                     <span className="icon is-small is-left">
                       <FontAwesomeIcon icon={faUser} />
@@ -116,7 +108,7 @@ class Register extends React.Component {
                   {this.state.errors.passwordConfirmation && <small className="help is-danger">{this.state.errors.passwordConfirmation}</small>}
                 </div>
                 <div className="field">
-                  <button type="submit" className="button is-fullwidth is-primary">Register Me</button>
+                  <button type="submit" className="button is-fullwidth has-background-grey-light">Register</button>
                 </div>
                 <div className="column is-half is-offset-one-quarter">
                   <p className="has-text-centered">
@@ -134,5 +126,4 @@ class Register extends React.Component {
     )
   }
 }
-
 export default Register

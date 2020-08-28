@@ -88,7 +88,7 @@ class Navbar extends React.Component {
               {isAuthenticated() && <div className={`navbar-item has-dropdown ${accountOpen ? 'is-active' : ''}`} onClick={() => this.handleNavToggle('account')}>
                 <span className="main-nav">Account</span>
                 <div className="navbar-dropdown">
-                  <Link to={`/surfspots/`}><div className="navbar-item nav-color">Profile</div></Link>
+                  <Link to={`/profile`}><div className="navbar-item nav-color">Profile</div></Link>
                   <span onClick={this.handleLogout} className="navbar-item nav-color">Log Out</span>
                 </div>
               </div>}

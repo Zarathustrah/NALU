@@ -1,12 +1,9 @@
 import React from 'react'
 import ReactStars from 'react-rating-stars-component'
-
 import SpotMiniMap from './SpotMiniMap'
 import SpotComments from './SpotComments'
-
 import { showSingleSpot, deleteSpot, commentSpot, deleteSpotComment, getUser, getLocalWeatherStatus, getMarineWeatherStatus } from '../../lib/api'
 import { isAuthenticated, isOwner, getUserId } from '../../lib/auth'
-
 class SpotShow extends React.Component {
   state = {
     spot: null,
@@ -24,21 +21,17 @@ class SpotShow extends React.Component {
     localWeather: null,
     localMarineWeather: null
   }
-
   async componentDidMount() {
     try {
       const res = await showSingleSpot(this.props.match.params.id)
       const loggedIn = await isAuthenticated()
       console.log(res.data)
-
       const resWeather = await getLocalWeatherStatus(res.data.lat, res.data.long)
       console.log(resWeather.data)
       this.setState({ localWeather: resWeather.data })
-
       const resMarine = await getMarineWeatherStatus(res.data.lat, res.data.long)
       console.log(resMarine.data)
       this.setState({ localMarineWeather: resMarine.data })
-
       if (!loggedIn) {
         this.setState({ spot: res.data, user: '' }, () => {this.handleRating()})
         // this.setState({ spot: res.data, user: '' })
@@ -56,59 +49,45 @@ class SpotShow extends React.Component {
       console.log(err)
     }
   }
-
   withMarineHeaders = () => {
     return {
       headers: { Authorization: process.env.REACT_APP_STORM }
     }
   }
-
   getApi(lat, long) {
     console.log('Lat: ' + lat, 'Long: ' + long)
   }
-
   handleDeleteSpot = async () => {
     try {
       await deleteSpot(this.props.match.params.id)
       this.props.history('/surfspots')
-
     } catch (err) {
       console.log(err)
     }
   }
-
   handleCommentSubmit = async (e, rating, text) => {
     e.preventDefault()
-
     try {
       const spotId = this.props.match.params.id
-
       await commentSpot(spotId, { rating: rating, text: text })
       const res = await showSingleSpot(spotId)
-
       this.setState({ spot: res.data, errors: '', commentText: '', commentRating: '' }, () => {this.handleRating()})
-
     } catch (err) {
       this.setState({ errors: JSON.parse(err.response.config.data)})
     }
   }
-
   handleCommentDelete = async event => {
     event.preventDefault()
-
     const spotId = this.props.match.params.id
     const commentId = event.target.id
-
     try {
       await deleteSpotComment(spotId, commentId)
       const res = await showSingleSpot(spotId)
       this.setState({ spot: res.data },() => {this.handleRating()})
-
     } catch (err) {
       console.log(err)
     }
   }
-  
   handleRating = () => {
     const comments = this.state.spot.comments
     const ratings = comments.map(comment => {
@@ -118,24 +97,18 @@ class SpotShow extends React.Component {
     console.log(averageRating)
     this.setState({ averageRating })
   }
-
-
   render() {
-
     if (!this.state.spot) return null
     const { spot, averageRating, localMarineWeather, localWeather } = this.state
     console.log(averageRating)
-
-
     console.log(localWeather)
     return (
       <div className="SpotShow box">
         <div className="hero is-medium is-success">
-          <div className="hero-body" style={{ backgroundImage: `url(${spot.image})` }}>
+          <div className="hero-body individual" style={{ backgroundImage: `url(${spot.image})` }}>
             <h1 className="title-logo">{spot.spot}, {spot.country}</h1>
           </div>
         </div>
-      
         <div className="weather-info">
           <div className="columns is-multiline">
           <section className="column is-one-third spot-info">
@@ -198,12 +171,10 @@ class SpotShow extends React.Component {
                   </section>
                 </div>
               </div>
-
           </div>
         </div>
       </div>
     )
   }
 }
-
 export default SpotShow

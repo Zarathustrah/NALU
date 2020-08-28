@@ -1,26 +1,44 @@
 .hero.is-fullheight.banner{
-  background-image: url("https://images.unsplash.com/photo-1490506051286-53652f168700?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
-  background-position: 50%;
-  background-position-y: 40%;
+  background-image: url("../components/common/images/picforreguster.jpg");
+  background-position-y: 90%;
   background-repeat: no-repeat;
   background-size: cover;
 }   
-.register{
-  display: flex;
-  justify-content: center;
-  padding-bottom: 2%;
-  color: white;
-  font-weight: bold;
-  font-size: 50px;
-  align-items: flex-start;  
-  font-family: 'Nunito Sans', sans-serif;
-  margin-top: -15%;
-}
-
-.label{
+.checkin{
   text-align: 4px;
 }
-
 .box{
   opacity: 90%;
+}
+.input.information{
+  margin-right: 20%;
+}
+.title.register {
+  display: flex;
+  color: grey;
+  justify-content: center;
+  margin-top: -17%;
+  padding-bottom: 2%;
+  font-weight: bold;
+  position: relative;
+  font-family: 'Nunito Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 3em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
 }

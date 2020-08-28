@@ -69,15 +69,13 @@ class SpotIndex extends React.Component {
         </div>
         <div className="field box index-search">
           <div className="control index-search-bar">
-            <input className="input is-primary is-rounded"
+            <input className="input is-primary is-rounded indexpage"
               name="search"
               type="text"
               placeholder="Type the surf spots? Country? Continent? Difficulty? Wave Type or Season..."
               onChange={this.handleSearch}
             />
-          </div>
-        </div>
-        <div className="view-change buttons field has-addons">
+         <div className="view-change buttons field has-addons maps">
           <p className="control list-view-button">
             <button
               className="button"
@@ -108,6 +106,8 @@ class SpotIndex extends React.Component {
               </span>
             </button>
           </p>
+        </div>
+          </div>
         </div>
         <section className="section">
         </section>

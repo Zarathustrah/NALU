@@ -24,23 +24,14 @@ router
   .route('/surfspots/:id/comments/:commentId')
   .delete(secureRoute, surfSpots.commentDelete)
 
-<<<<<<< HEAD
-
-//* AUTH 
-=======
 // --------------------------------  Log Related  -------------------------------- //
 
->>>>>>> development
 router.route('/register')
   .post(auth.register)
 
 router.route('/login')
   .post(auth.login)
 
-<<<<<<< HEAD
-
-//* USERS
-=======
 // --------------------------------  Profiles Related  -------------------------------- //
 
 router.route('/profiles')
@@ -62,7 +53,6 @@ router.route('/profiles/:id/achieved/:achievedId')
 
 // --------------------------------  Profiles Related  -------------------------------- //
 
->>>>>>> development
 router.route('/profiles')
   .get(secureRoute, users.userIndex)
 
@@ -76,8 +66,4 @@ router.route('/profiles/:id/achieved')
 router.route('/profiles/:id/achieved/:achievedId')
   .delete(secureRoute, users.userAchievedSurfSpotsDelete)
 
-<<<<<<< HEAD
 module.exports = router
-=======
-module.exports = router
->>>>>>> development

@@ -73,11 +73,7 @@ async function userAchievedSurfSpotsCreate(req, res, next) {
   }
 }
 
-<<<<<<< HEAD
-//* DELETE URL: /profiles/:id/completed/:compId
-=======
 //----------- DELETE URL: /profiles/:id/completed/:compId -----------//
->>>>>>> development
 
 async function userAchievedSurfSpotsDelete(req, res, next) {
   try {

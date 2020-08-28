@@ -1,20 +1,36 @@
 .hero.is-fullheight.login{
-  background-image: url("https://images.unsplash.com/photo-1519867742-f8857bdd477e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
+  background-image: url("https://images.unsplash.com/photo-1547222794-032f2888a12e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-
-
-
 }
 
-.signup{
+.signup {
   display: flex;
+  color: grey;
   justify-content: center;
-  padding-bottom: 2%;
-  color: white;
+  padding-bottom: 4%;
+  margin-top: 5%;
   font-weight: bold;
-  font-size: 50px;
-  align-items: flex-start;  
+  position: relative;
   font-family: 'Nunito Sans', sans-serif;
-  margin-top: 30px;
-  opacity: 80%;
+  text-transform: uppercase;
+  font-size: 3em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
 }

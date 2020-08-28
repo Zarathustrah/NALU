@@ -1,11 +1,10 @@
-.spotShow {
-  .hero-body {
-    background-position: center;
+  .hero-body.individual {
+    background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
     .title-logo {
       font-family: 'Nunito', sans-serif;
-      font-size: 100px;
+      font-size: 30px;
       text-shadow: 0 0 10px #000000;
       color: #ffffff;
     }
@@ -29,6 +28,7 @@
   }
   .comment-spot {
     display: flex;
+    justify-content: flex-end;
     
   }
 
@@ -36,4 +36,4 @@
     color: black;
     size: 20px;
   }
-}
+
