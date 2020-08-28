@@ -1,19 +1,17 @@
-import React from "react";
-import { getAllSpots } from "../../lib/api";
+import React from "react"
+import { getAllSpots } from "../../lib/api"
 
 class Home extends React.Component {
   state = {
-    search: "",
-  };
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.props.history.push(`/surfspots?search=${this.state.search}`);
-  };
+    search: ''
+  }
+handleChange = (event) => {
+  this.setState({ [event.target.name]: event.target.value })
+}
+handleSubmit = event => {
+  event.preventDefault()
+  this.props.history.push(`/surfspots?search=${this.state.search}`)
+}
   render() {
     return (
       <section className="hero is-fullheight is-primary is-bold homebackground">
@@ -51,8 +49,8 @@ class Home extends React.Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
 }
 
-export default Home;
+export default Home

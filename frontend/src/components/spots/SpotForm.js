@@ -198,6 +198,23 @@ const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
               onChange={handleChange}
               value={formData.lat}
             />
+              <span className="icon is-small is-left text">
+              <FontAwesomeIcon icon={faGlobe} />
+            </span>
+          </div>
+          </p>
+        </div>
+        <div className="field">
+          <label className="label">spot</label>
+          <p className="control is-expanded">  
+          <div className="control has-icons-left text">
+            <input
+              className="input user"
+              placeholder="spot"
+              name="spot"
+              onChange={handleChange}
+              value={formData.lat}
+            />
             <span className="icon is-small is-left text">
               <FontAwesomeIcon icon={faPortrait} />
             </span>
