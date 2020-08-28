@@ -1,47 +1,32 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { getAllSpots } from '../../lib/api'
 
-class HandleCompletedSpot extends React.Component {
-  state = {
-    spots: null
-  }
+const HandleCompletedSpot = (props) => {
 
-  async componentDidMount() {
-    try {
-      const res = await getAllSpots()
-      console.log(res.data)
-      this.setState(res.data)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  render() {
-    const { spots } = this.state
-    if (!spots) return null
-
-    return (
-      <div className="column is-full fav-comp">
-          <div className="columns">
-          <Link to={`/surfspots/${spots._id}`}>
-            <img className="column is-three-fifths group-image" src={spots.image} height="50" width="70" alt="surfSpot Img"/>
-          </Link><div className="column">
-            <div>
-              <Link to={`/surfspots/${spots._id}`}><p>{spots.name}</p></Link>
-                {this.edit && <button
-                  className="button remove"
-                  onClick={handleClick}
-                  value={spots._id}
-                  name="completed"
-                >Remove</button>}
-              </div>
+  const { edit } = props
+  console.log('HandleCompletedSpot edit', edit)
+  console.log('HandleCompletedSpot id', props._id)
+  console.log('HandleCompletedSpot spot', props.spot)
+  console.log('HandleCpmpletedSpot image', props.image)
+  return (
+    <div className="column is-full fav-comp">
+        <div className="columns">
+        <Link to={`/surfspots/${props.spot}`}>
+          <img className="column is-three-fifths group-image" src={props.spot.image} height="50px" width="70px" alt="surfSpot Img"/>
+        </Link><div className="column">
+          <div>
+            <Link to={`/surfspots/${props.spot}`}><p>{props.spot.name}</p></Link>
+              {edit && <button
+                className="button remove"
+                onClick={props.handleClick}
+                value={props._id}
+                name="completed"
+              >Remove</button>}
             </div>
           </div>
-      </div>
-    )
-  }
-
+        </div>
+    </div>
+  )
 }
 
 export default HandleCompletedSpot

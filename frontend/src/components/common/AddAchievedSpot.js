@@ -3,6 +3,7 @@ import axios from 'axios'
 import Select from 'react-select'
 
 import { getToken } from '../../lib/auth'
+import SpotIndex from '../spots/SpotIndex'
 
 class AddAchievedSpot extends React.Component {
   state = {
@@ -47,6 +48,7 @@ class AddAchievedSpot extends React.Component {
   render() {
     console.log(this.state.spotOptions)
     console.log(this.state.selectedSpot)
+    console.log(this.state.spots)
     return (
       <div>
         <form onSubmit={(event) => this.props.handleSubmit(event, this.state.selectedSpot)} className="columns comp-form" >
@@ -56,7 +58,9 @@ class AddAchievedSpot extends React.Component {
             options={this.state.spotOptions}
             onChange={this.handleMultiChange}
           />
-          <div className="column"> <button type="submit" className="button">+</button></div>
+          <div className="column"> 
+            <button type="submit" className="button">+</button>
+          </div>
         </form>
       </div >
     )
