@@ -10,7 +10,7 @@ Example of adding comments
 ## :rocket: Overview
 Our product **aims to give users all current information related to the best surfing spots around the world.**  The user will have the **ability to search** any surfing spots by location which will display all detailed cards.
 
-**This project raised the difficulties to work in a group which immediately allowed us to understand what were the market minimum requirements.** The 3 of us decided to allocate a **meticulous time to prepare** the redistribution of tasks between the client and backend.  One of the early difficulty was to **understand how to work with the git branches** in order to prevent conflicting with one and each others work.
+**This project raised the difficulties to work in a group which immediately allowed us to understand what were the market minimum requirements.** We decided to allocate a **meticulous time to prepare** the redistribution of tasks between the client and backend.  One of the early difficulty was to **understand how to work with the git branches** in order to prevent conflicting with one and each others work.
 
 <img src="readmeAssets/gitBranches.png" alt="gitBranches" width="350" />
 
@@ -27,7 +27,7 @@ Navigate to [http://localhost:3000/](http://localhost:3000/)
 * [Julien Xemard](https://github.com/JulienXemard)
 * [Bec Sun](https://github.com/becsun)
 * [Brenda Ty](https://github.com/brendino500)
-* ([Dan Price](https://github.com/Zarathustrah))
+* [Dan Price](https://github.com/Zarathustrah)
 
 ## :hourglass_flowing_sand: Timeframe
 7 days
