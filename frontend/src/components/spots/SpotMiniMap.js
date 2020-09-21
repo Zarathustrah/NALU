@@ -9,7 +9,7 @@ class SpotMiniMap extends React.Component {
       <div className="spot-show-minimap">
         <MapGL
           mapboxApiAccessToken={process.env.REACT_APP_MAPTOK}
-          width="100%"
+          width="50vh"
           height="50vh"
           mapStyle="mapbox://styles/heybt/cke9wjydl4lb719p30xbp38b3"
           latitude={spot.lat}
