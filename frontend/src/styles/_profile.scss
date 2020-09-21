@@ -8,10 +8,12 @@
   margin-left: 10%;
 }
 .image.is-128x128{
-  object-fit: cover;
+  background:url("https://www.kirkham-legal.co.uk/wp-content/uploads/2017/02/profile-placeholder.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 250px;
-  height: 250px;
-  border-radius: 50%;
+  height: 240px;
+  border-radius: 60%;
 }
 
 .tile.is-parent.tile.is-6{
@@ -32,4 +34,14 @@ position: fixed;
 top: 0;
 left: 0;
 
+}
+.profilebackground{
+  background:url("../components/common/images/surf2.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  opacity: 86%;
+}
+
+.surfcentered{
+  align-items: center;
 }

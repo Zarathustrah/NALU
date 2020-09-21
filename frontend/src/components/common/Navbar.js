@@ -4,7 +4,7 @@ import { logout, isAuthenticated, getUserId } from '../../lib/auth'
 import { popupNotification } from '../../lib/notification'
 
 class Navbar extends React.Component {
-  state = { 
+  state = {
     navbarOpen: false,
     spotsOpen: false,
     communityOpen: false,
@@ -56,9 +56,7 @@ class Navbar extends React.Component {
     // if (!users) return null
     const { navbarOpen, spotsOpen, communityOpen, accountOpen } = this.state
 
-
     return (
-      
       <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">

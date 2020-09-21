@@ -5,10 +5,10 @@ import { faGlobe,faPortrait,faFlag } from '@fortawesome/free-solid-svg-icons'
 
 const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
   return (
-    <div className="columns">
+    <div className="columns ">
       <form 
       onSubmit={handleSubmit} 
-      className="column is full length"> 
+      className="column is full length "> 
         <main className="section">
         <h1 class="title is-2 spotHeading">SURF SPOT</h1>
             <div className="columns is-mobile">
@@ -18,7 +18,7 @@ const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
             <label className="label">Continent</label>
             <div className="control is-expanded">
             <div className="select is-fullwidth writehere">
-            <select name="continent dropdown" onChange={handleChange} value={formData.value} defaultValue="">
+            <select name="continent" onChange={handleChange} value={formData.value} defaultValue="">
             <span className="icon is-small is-left">
               <FontAwesomeIcon icon={faGlobe} />
           </span>
@@ -37,7 +37,7 @@ const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
         <div className="field">
           <label className="label">Spot</label>
           <p className="control is-expanded">  
-          <div className="control has-icons-left">
+          <div className="control has-icons-left text">
             <input
               className="input user"
               placeholder="Spot"
@@ -182,7 +182,7 @@ const SpotForm = ({  formData, handleChange, handleSubmit, submitText }) => {
               value={formData.image}
             />
               <span className="icon is-small is-left text">
-              <FontAwesomeIcon icon={faGlobe} />
+              <FontAwesomeIcon icon={faPortrait} />
             </span>
           </div>
           </p>

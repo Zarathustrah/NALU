@@ -101,7 +101,7 @@ class SpotShow extends React.Component {
     const { spot, averageRating, localMarineWeather, localWeather } = this.state
     return (
       <div className="SpotShow box">
-        <div className="hero is-medium is-success">
+        <div className="hero is-medium is-success show">
           <div className="hero-body individual" style={{ backgroundImage: `url(${spot.image})` }}>
             <h1 className="title-logo">{spot.spot}, {spot.country}</h1>
           </div>
@@ -112,7 +112,7 @@ class SpotShow extends React.Component {
             <h1>Difficulty: {spot.difficulty} </h1>
             <h1>Seasons: {spot.season} </h1>
             <h1>Wave Type: {spot.waveType}</h1>
-            <h1>Average Rating: 
+            <h1>Average Rating:
               <ReactStars
                 count={5}
                 size={20}
@@ -134,14 +134,14 @@ class SpotShow extends React.Component {
             <h1>{(localWeather.main.temp - 273.15).toFixed(0)} °C</h1>
             </section>
           </section>
-          {/* <section className="column is-one-third marine-weather">
+          <section className="column is-one-third marine-weather">
             <h1>Marine Weather:</h1>
             <h1>Sea Level: {localMarineWeather.hours[0].seaLevel.meto} Tidal</h1>
             <h1>Swell Direction: {localMarineWeather.hours[0].swellDirection.meteo}</h1>
             <h1>Swell Height: {localMarineWeather.hours[0].swellHeight.meteo} SH</h1>
             <h1>Water Temp: {localMarineWeather.hours[0].waterTemperature.meto}°C</h1>
             <h1>Wave Height: {localMarineWeather.hours[0].waveHeight.meteo} WH</h1>
-          </section>  */}
+          </section>
               <hr />
           <section className="description-box">
           <h1 className="title-show">Description:</h1>

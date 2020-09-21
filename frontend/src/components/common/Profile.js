@@ -91,7 +91,7 @@ class Profile extends React.Component {
 
     
     return (
-      <section className="section">
+      <section className="section profilebackground">
         <h1 className="title is-3 heading">My Profile</h1>
         <div className="columns is-two-fifths">
           <div className="columns is-two-fifths">
@@ -107,7 +107,7 @@ class Profile extends React.Component {
                 </figure>
               </div>
               <div className="has-text-centered add-margin">
-                <button className="has-text-centered add-margin">Edit Portfolio</button>
+                <button className="button is-primary has-text-centered add-margin">Edit Portfolio</button>
               </div>
             </div>
             <div className="column is-four-fifths personalinfo">
@@ -117,7 +117,7 @@ class Profile extends React.Component {
                 value="">
               </div>
               <div className="column details">
-                <h1>{users.username}</h1>
+                <h1 className="">{users.username}</h1>
               </div>
               <hr className="seperator" />
               <div className="column details">

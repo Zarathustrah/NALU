@@ -1,13 +1,14 @@
-  .hero-body.individual {
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
     .title-logo {
       font-family: 'Nunito', sans-serif;
       font-size: 30px;
       text-shadow: 0 0 10px #000000;
       color: #ffffff;
     }
+
+  .hero-body.individual.show{
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .spot-title {
     font-family: 'Nunito', sans-serif;
@@ -29,7 +30,7 @@
   .comment-spot {
     display: flex;
     justify-content: flex-end;
-    
+
   }
 
   .title-show {
