@@ -80,4 +80,14 @@ Example of ternary conditional rendering
 
 <img src="readmeAssets/apiView.png" alt="weatherApi" width="500" />
 
+## :tada: Sources 
+[Storm Glass](https://stormglass.io/)
+<br />
 
+[Open Weather API](https://openweathermap.org/api)
+<br />
+
+[MapBox](https://www.mapbox.com/)
+<br />
+
+[Hikr](https://hikrr.herokuapp.com/)
