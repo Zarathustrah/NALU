@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapPin, faList, faTh } from '@fortawesome/fontawesome-free-solid'
 
 class SpotIndex extends React.Component {
-  state = { 
+  state = {
     spots: null,
     searchTerm: '',
     hideMap: true,
@@ -29,7 +29,7 @@ class SpotIndex extends React.Component {
       console.log(err)
     }
   }
-  
+
   handleSearch = e => {
     this.setState({ [e.target.spots]: e.target.value })
     // console.log(e.target.spots)
@@ -58,7 +58,7 @@ class SpotIndex extends React.Component {
       this.setState({ hideMap: false, hideList: true, hideGrid: true })
     }
   }
-  
+
   render() {
     if (!this.state.spots) return null
     return (
