@@ -7,7 +7,6 @@ import SpotMap from './SpotMap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapPin, faList, faTh } from '@fortawesome/fontawesome-free-solid'
 
-
 class SpotIndex extends React.Component {
   state = {
     spots: null,
@@ -105,7 +104,7 @@ class SpotIndex extends React.Component {
               name="showMap"
               onClick={this.handleDisplayCard}>
               <span className="icon is-small">
-                <FontAwesomeIcon icon={faMapPin}/>
+              <FontAwesomeIcon icon={faMapPin}/>
               </span>
             </button>
           </p>

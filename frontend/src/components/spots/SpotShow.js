@@ -99,6 +99,7 @@ class SpotShow extends React.Component {
   render() {
     if (!this.state.spot) return null
     const { spot, averageRating, localMarineWeather, localWeather } = this.state
+
     return (
       <div className="SpotShow box">
         <div className="hero is-medium is-success show">
@@ -147,18 +148,19 @@ class SpotShow extends React.Component {
           <h1 className="title-show">Description:</h1>
             <p>{spot.description}</p>
             <hr />
-          </section>
-              <div className="columns is-multiline">
-                <div className="column is-half-desktop">
-                  <h1 className="title-show">Location: {spot.region}, {spot.country}</h1>
-                  <br />
-                  <SpotMiniMap
-                    spot={this.state.spot}
-                    />
-                </div>
-                <div className="column is-half-desktop">
-                  <section className="comment-spot">
-                    <SpotComments
+          </section> 
+          <div className="column">
+            <div className="column is-half">
+            <h1 className="title-show">Location: {spot.region}, {spot.country}</h1>
+              <br />
+              <SpotMiniMap
+                spot={this.state.spot}
+                />
+            </div>
+          </div>
+          <div className="column">
+            <div className="column is-half">
+            <SpotComments
                       comment={this.state.spot.comments}
                       handleCommentDelete={this.handleCommentDelete}
                       handleCommentSubmit={this.handleCommentSubmit}
@@ -166,11 +168,10 @@ class SpotShow extends React.Component {
                       commentText={this.state.commentText}
                       commentRating={this.state.commentRating}
                     />
-                  </section>
-                </div>
-              </div>
+            </div>
           </div>
         </div>
+      </div>
       </div>
     )
   }
