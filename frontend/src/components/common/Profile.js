@@ -31,8 +31,8 @@ class Profile extends React.Component {
       // console.log('state', this.state)
       await addAchievedSpot(userId, spotId)
       const res = await getUser(userId)
-      this.setState({ users: res.data }) 
-      
+      this.setState({ users: res.data })
+
     } catch (err) {
       console.log(err.response)
     }
@@ -89,7 +89,7 @@ class Profile extends React.Component {
       }
     }
 
-    
+
     return (
       <section className="section profilebackground">
         <h1 className="title is-3 heading">My Profile</h1>
@@ -160,10 +160,10 @@ class Profile extends React.Component {
                 />
                 <div className="column columns is-multiline">
                   {isOwner(users._id) &&
-                    <div className="column is-full"> 
-                      <AddAchievedSpot 
-                        id={users._id} 
-                        handleSubmit={this.addAchievedSurfSpot} 
+                    <div className="column is-full">
+                      <AddAchievedSpot
+                        id={users._id}
+                        handleSubmit={this.addAchievedSurfSpot}
                       />
                     </div>
                   }

@@ -4,9 +4,12 @@ import { getAllSpots } from '../../lib/api'
 import SpotCard from './SpotCard'
 import SpotList from './SpotList'
 import SpotMap from './SpotMap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapPin, faList, faTh } from '@fortawesome/fontawesome-free-solid'
+
 
 class SpotIndex extends React.Component {
-  state = { 
+  state = {
     spots: null,
     searchTerm: '',
     hideMap: true,
@@ -27,7 +30,7 @@ class SpotIndex extends React.Component {
       console.log(err)
     }
   }
-  
+
   handleSearch = e => {
     this.setState({ [e.target.spots]: e.target.value })
     // console.log(e.target.spots)
@@ -56,7 +59,7 @@ class SpotIndex extends React.Component {
       this.setState({ hideMap: false, hideList: true, hideGrid: true })
     }
   }
-  
+
   render() {
     if (!this.state.spots) return null
     return (
@@ -82,7 +85,7 @@ class SpotIndex extends React.Component {
               name="showList"
               onClick={this.handleDisplayCard}>
               <span className="icon is-small">
-                <i className="fas fa-list"></i>
+              <FontAwesomeIcon icon={faList}/>
               </span>
             </button>
           </p>
@@ -92,7 +95,7 @@ class SpotIndex extends React.Component {
               name="showGrid"
               onClick={this.handleDisplayCard}>
               <span className="icon is-small">
-                <i className="fas fa-th"></i>
+              <FontAwesomeIcon icon={faTh}/>
               </span>
             </button>
           </p>
@@ -102,7 +105,7 @@ class SpotIndex extends React.Component {
               name="showMap"
               onClick={this.handleDisplayCard}>
               <span className="icon is-small">
-                <i className="fas fa-map-pin"></i>
+                <FontAwesomeIcon icon={faMapPin}/>
               </span>
             </button>
           </p>
