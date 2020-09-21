@@ -103,13 +103,13 @@ class SpotShow extends React.Component {
       <div className="SpotShow box">
         <div className="hero is-medium is-success show">
           <div className="hero-body individual" style={{ backgroundImage: `url(${spot.image})` }}>
-            <h1 className="title-logo">{spot.spot}, {spot.country}</h1>
+            <h1 className="surfspot">{spot.spot}, {spot.country}</h1>
           </div>
         </div>
         <div className="weather-info">
           <div className="columns is-multiline">
           <section className="column is-one-third spot-info">
-            <h1>Difficulty: {spot.difficulty} </h1>
+            <p>Difficulty: {spot.difficulty}</p>
             <h1>Seasons: {spot.season} </h1>
             <h1>Wave Type: {spot.waveType}</h1>
             <h1>Average Rating:
@@ -128,14 +128,14 @@ class SpotShow extends React.Component {
           </section>
           <section className="column is-one-third local-weather">
             <section className="column is-one-third local-weather">
-            <h1>Local Weather</h1>
+            <p className="spot-info">Local Weather</p>
             <h1>{localWeather.weather[0].main}</h1>
             <img src={`http://openweathermap.org/img/wn/${localWeather.weather[0].icon}@2x.png`} alt="weather-icon" />
             <h1>{(localWeather.main.temp - 273.15).toFixed(0)} °C</h1>
             </section>
           </section>
           <section className="column is-one-third marine-weather">
-            <h1>Marine Weather:</h1>
+            <p className="spot-info">Marine Weather:</p>
             <h1>Sea Level: {localMarineWeather.hours[0].seaLevel.meto} Tidal</h1>
             <h1>Swell Direction: {localMarineWeather.hours[0].swellDirection.meteo}</h1>
             <h1>Swell Height: {localMarineWeather.hours[0].swellHeight.meteo} SH</h1>

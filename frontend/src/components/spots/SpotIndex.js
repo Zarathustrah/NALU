@@ -75,7 +75,7 @@ class SpotIndex extends React.Component {
               onChange={this.handleSearch}
               value={this.state.searchTerm}
             />
-         <div className="view-change buttons field has-addons maps">
+          <div className="view-change buttons field has-addons maps">
           <p className="control list-view-button">
             <button
               className="button"

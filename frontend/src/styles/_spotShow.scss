@@ -1,6 +1,11 @@
-    .title-logo {
+  .hero-body.individual {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .surfspot {
       font-family: 'Nunito', sans-serif;
       font-size: 30px;
+      font-weight: bold;
       text-shadow: 0 0 10px #000000;
       color: #ffffff;
     }
@@ -38,3 +43,6 @@
     size: 20px;
   }
 
+  .spot-info {
+    size: 30px;
+  }
