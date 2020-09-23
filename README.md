@@ -27,7 +27,7 @@ Navigate to [http://localhost:3000/](http://localhost:3000/)
 * [Julien Xemard](https://github.com/JulienXemard)
 * [Bec Sun](https://github.com/becsun)
 * [Brenda Ty](https://github.com/brendino500)
-* ([Dan Price](https://github.com/Zarathustrah))
+* [Dan Price](https://github.com/Zarathustrah)
 
 ## :hourglass_flowing_sand: Timeframe
 7 days
