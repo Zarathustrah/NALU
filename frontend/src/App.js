@@ -6,27 +6,18 @@ import Navbar from './components/common/Navbar'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Profile from './components/common/Profile'
-// import ProfileForm from './components/common/ProfileForm'
 import SpotIndex from './components/spots/SpotIndex'
 import SpotShow from './components/spots/SpotShow'
 import SpotNew from './components/spots/SpotNew'
 import SpotEdit from './components/spots/SpotEdit'
-// import SpotMap from './components/spots/SpotMap'
-
-// import GroupIndex from './components/groups/GroupIndex'
-// import GroupShow from './components/groups/GroupShow'
-// import GroupNew from './components/groups/GroupNew'
-// import GroupEdit from './components/groups/GroupEdit'
 
 import UserIndex from './components/users/UserIndex'
-// import UserShow from './components/users/UserShow'
 
 import ErrorPage from './components/common/ErrorPage'
 import SecureRoute from './components/common/SecureRoute'
 const App = () => (
   <BrowserRouter>
     <main>
-      {/* <SpotMap /> */}
       <Notification />
       <Navbar />
       <Switch>
@@ -35,14 +26,6 @@ const App = () => (
         <Route path="/surfspots/new" component={SpotNew} />
         <Route path="/surfspots/:id" component={SpotShow} />
         <Route path="/surfspots" component={SpotIndex} />
-        {/* <Route path="/surfspots/map" component={SpotMap} />   */}
-
-        {/* <Route path="/groups/:id/edit" component={GroupEdit} /> 
-        <Route path="/groups/new" component={GroupNew} /> 
-        <Route path="/groups/:id" component={GroupShow} /> 
-        <Route path="/groups" component={GroupIndex} />  */}
-
-        {/* <Route path="/users/:id" component={UserShow} /> */}
         <Route path="/users" component={UserIndex} />
         <SecureRoute exact path="/profile/:id" component={Profile} />
         <Route path="/register" component={Register} />
