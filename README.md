@@ -15,7 +15,7 @@ Our product **aims to give users all current information related to the best sur
 <img src="readmeAssets/gitBranches.png" alt="gitBranches" width="350" />
 
 ---
-The App is hosted here  
+The App is hosted [here](https://naluwave.herokuapp.com/)  
 Else, kindly clone or fork the repository:  
 To install all the packages listed in the package.json: —> npm i  
 Check the console for any issues and if there are any then check the package.json for any dependancies missing —>  
