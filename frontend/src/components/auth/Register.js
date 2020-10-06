@@ -4,7 +4,7 @@ import { registerUser } from '../../lib/api'
 import { popupNotification } from '../../lib/notification'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser, faLock } from '@fortawesome/free-solid-svg-icons'
-// import HeroBanner from '../common/HeroBanner'
+
 class Register extends React.Component {
   state = {
     data: {
@@ -25,18 +25,15 @@ class Register extends React.Component {
     e.preventDefault()
     try {
       const res = await registerUser(this.state.data)
-      console.log(res.data)
       console.log(res)
       popupNotification('Welcome! now please log in')
       this.props.history.push('/login')
     } catch (err) {
-      console.log(this.state)
       console.log(err)
       this.setState({ errors: err.response.data.errors })
     }
   }
   render() {
-    console.log(this.state.data)
     return (
       <>
         <section className="hero is-fullheight banner">

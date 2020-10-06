@@ -43,9 +43,6 @@ class AddAchievedSpot extends React.Component {
   }
 
   render() {
-    // console.log(this.state.spotOptions)
-    // console.log(this.state.selectedSpot)
-    // console.log(this.state.spots)
     return (
       <div>
         <form onSubmit={(event) => this.props.handleSubmit(event, this.state.selectedSpot)} className="columns comp-form" >
