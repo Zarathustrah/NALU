@@ -11,6 +11,7 @@ class SpotComments extends React.Component {
     commentData: '',
     rating: '',
     userProfileImage: '',
+    // createdDate: ''
   }
 
   async componentDidMount() {
@@ -30,10 +31,12 @@ class SpotComments extends React.Component {
 
   handleChange = e => {
     const commentData = e.target.value
+    console.log(e.target.value)
     this.setState({ commentData })
   }
 
   handleRating = rating => {
+    console.log(this.state.rating)
     this.setState({ rating })
   }
 
@@ -46,6 +49,7 @@ class SpotComments extends React.Component {
   render() {
     const { handleCommentDelete, comment, errors} = this.props
     const { commentData, rating, userProfileImage } = this.state
+    console.log(rating)
 
     return (
       <>
@@ -122,6 +126,7 @@ class SpotComments extends React.Component {
                     count={5}
                     size={20}
                     half={false}
+                    // name="rating"
                     value={comment.rating}
                     emptyIcon={<i className="far fa-star"></i>}
                     halfIcon={<i className="fa fa-star-half-alt"></i>}

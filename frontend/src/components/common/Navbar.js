@@ -9,6 +9,7 @@ class Navbar extends React.Component {
     spotsOpen: false,
     communityOpen: false,
     accountOpen: false,
+    // users: null
   }
 
   handleNavToggle = tab => {
@@ -50,8 +51,10 @@ class Navbar extends React.Component {
   }
 
   render() {
+    // const { users } = this.state
     const userID = getUserId()
-    const { navbarOpen, spotsOpen, accountOpen } = this.state
+    // if (!users) return null
+    const { navbarOpen, spotsOpen, communityOpen, accountOpen } = this.state
 
     return (
       <nav className="navbar">

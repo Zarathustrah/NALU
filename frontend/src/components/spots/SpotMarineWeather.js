@@ -1,4 +1,6 @@
 import React from 'react'
+// import { getMarineWeatherStatus, getAllSpots } from '../../lib/api'
+// import SpotLocalWeather from './SpotLocalWeather'
 
 class SpotMarineWeather extends React.Component {
   render() {

@@ -5,6 +5,7 @@ import { setToken } from '../../lib/auth'
 import { popupNotification } from '../../lib/notification'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons'
+// import HeroBanner from '../common/HeroBanner'
 
 
 class Login extends React.Component {
@@ -26,6 +27,7 @@ class Login extends React.Component {
 
     try {
       const res = await loginUser(this.state.data)
+      console.log(res.data)
       setToken(res.data.token)
       popupNotification(res.data.message)
       this.props.history.push('/surfspots')

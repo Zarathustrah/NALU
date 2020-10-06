@@ -26,15 +26,18 @@ class SpotShow extends React.Component {
       const res = await showSingleSpot(this.props.match.params.id)
       const loggedIn = await isAuthenticated()
       const resWeather = await getLocalWeatherStatus(res.data.lat, res.data.long)
+      // console.log(resWeather.data)
       this.setState({ localWeather: resWeather.data })
       const resMarine = await getMarineWeatherStatus(res.data.lat, res.data.long)
       console.log(resMarine.data)
       this.setState({ localMarineWeather: resMarine.data })
       if (!loggedIn) {
         this.setState({ spot: res.data, user: '' }, () => {this.handleRating()})
+        // this.setState({ spot: res.data, user: '' })
       } else {
         const currentUserId = await getUserId()
         const currentUser = await getUser(currentUserId)
+        console.log(res.data)
         this.setState({ spot: res.data, user: currentUser.data }, () => {
           this.handleRating()
           this.getApi(res.data.lat, res.data.long)
@@ -95,7 +98,7 @@ class SpotShow extends React.Component {
   }
   render() {
     if (!this.state.spot) return null
-    const { spot, localMarineWeather, localWeather } = this.state
+    const { spot, averageRating, localMarineWeather, localWeather } = this.state
 
     return (
       <div className="SpotShow box">
@@ -115,9 +118,11 @@ class SpotShow extends React.Component {
                 count={5}
                 size={20}
                 half={false}
+                // value={parseInt(averageRating)}
                 value={4}
                 emptyIcon={<i className="far fa-star"></i>}s
                 fullIcon={<i className="fa fa-star"></i>}
+                // activeColor="#ffd700"
                 edit={false}
             />
             </h1>

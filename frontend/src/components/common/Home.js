@@ -1,4 +1,5 @@
 import React from 'react'
+import { getAllSpots } from '../../lib/api'
 
 class Home extends React.Component {
   state = {
