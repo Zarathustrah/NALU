@@ -2,9 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const HandleCompletedSpot = (props) => {
-
-  console.log('HandleCpmpletedSpot image', props.image)
-
   return (
     <div className="column is-full fav-comp">
       <div className="columns">

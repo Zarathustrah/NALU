@@ -22,7 +22,6 @@ class AddAchievedSpot extends React.Component {
       const baseUrl = '/api'
       const res = await axios.get(`${baseUrl}/surfspots`)
       const resUser = await axios.get(`${baseUrl}/profile/${this.props.id}`, withHeaders())
-      console.log(resUser)
       this.setState({ spots: res.data, achievedSpot: resUser.data.achievedSpot },
         () => {
           this.addSpotOptions()
@@ -33,7 +32,7 @@ class AddAchievedSpot extends React.Component {
   }
   addSpotOptions = () => {
     const { spots } = this.state
-    console.log('addSpotOptionFunction', spots)
+
     const spotOptions = spots.map(spot => ({ value: spot._id, label: spot.spot }))
     this.setState({ spotOptions })
   }
@@ -43,9 +42,6 @@ class AddAchievedSpot extends React.Component {
   }
 
   render() {
-    // console.log(this.state.spotOptions)
-    // console.log(this.state.selectedSpot)
-    // console.log(this.state.spots)
     return (
       <div>
         <form onSubmit={(event) => this.props.handleSubmit(event, this.state.selectedSpot)} className="columns comp-form" >

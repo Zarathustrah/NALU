@@ -16,8 +16,6 @@ class Profile extends React.Component {
       const res = await getUser(this.props.match.params.id)
       const resSpot = await getAllSpots()
       this.setState({ spots: resSpot.data, users: res.data })
-      console.log('spots array', resSpot.data)
-      // console.log(res.data)
     } catch (err) {
       console.log(err)
     }
@@ -27,8 +25,6 @@ class Profile extends React.Component {
     e.preventDefault()
     try {
       const userId = this.state.users._id
-      // console.log(userId)
-      // console.log('state', this.state)
       await addAchievedSpot(userId, spotId)
       const res = await getUser(userId)
       this.setState({ users: res.data })
@@ -59,11 +55,6 @@ class Profile extends React.Component {
     if (!users) return null
 
     let achievedSurfSpot
-    console.log('achievedSurfSpot', achievedSurfSpot)
-    console.log('profile, users', users)
-
-    console.log('usersachievedSurfSpot', users.achievedSurfSpot)
-    console.log('profile spot',this.state.spots);
     let filteredSpots = [];
     if (spots && users){
       filteredSpots = spots.filter(spot => {
@@ -76,7 +67,6 @@ class Profile extends React.Component {
         return isUserSpot
       });
     }
-      console.log('filteredSpots', filteredSpots)
       if (filteredSpots) {
       if (filteredSpots.length > 0 ) {
         achievedSurfSpot = filteredSpots.map(spot => {
@@ -125,7 +115,6 @@ class Profile extends React.Component {
               </div>
               <hr className="seperator" />
               <div className="column details">
-              {/* <h1>{users.}</h1> */}
               </div>
             </div>
           </div>
@@ -140,8 +129,6 @@ class Profile extends React.Component {
                   type="text"
                   placeholder=""
                   name="visited"
-                // onChange={handleChange}
-                // value={this.visited}
                 />
               </article>
             </div>

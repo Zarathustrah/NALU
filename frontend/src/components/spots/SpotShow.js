@@ -26,21 +26,20 @@ class SpotShow extends React.Component {
       const res = await showSingleSpot(this.props.match.params.id)
       const loggedIn = await isAuthenticated()
       const resWeather = await getLocalWeatherStatus(res.data.lat, res.data.long)
-      // console.log(resWeather.data)
+
       this.setState({ localWeather: resWeather.data })
       const resMarine = await getMarineWeatherStatus(res.data.lat, res.data.long)
-      console.log(resMarine.data)
+
       this.setState({ localMarineWeather: resMarine.data })
       if (!loggedIn) {
         this.setState({ spot: res.data, user: '' }, () => {this.handleRating()})
-        // this.setState({ spot: res.data, user: '' })
+
       } else {
         const currentUserId = await getUserId()
         const currentUser = await getUser(currentUserId)
-        console.log(res.data)
         this.setState({ spot: res.data, user: currentUser.data }, () => {
           this.handleRating()
-          this.getApi(res.data.lat, res.data.long)
+
           },
         )
       }
@@ -53,9 +52,7 @@ class SpotShow extends React.Component {
       headers: { Authorization: process.env.REACT_APP_STORM }
     }
   }
-  getApi(lat, long) {
-    console.log('Lat: ' + lat, 'Long: ' + long)
-  }
+
   handleDeleteSpot = async () => {
     try {
       await deleteSpot(this.props.match.params.id)
@@ -93,7 +90,6 @@ class SpotShow extends React.Component {
       return comment.rating
     })
     const averageRating = (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(0)
-    console.log(averageRating)
     this.setState({ averageRating })
   }
   render() {
@@ -118,11 +114,9 @@ class SpotShow extends React.Component {
                 count={5}
                 size={20}
                 half={false}
-                // value={parseInt(averageRating)}
                 value={4}
                 emptyIcon={<i className="far fa-star"></i>}s
                 fullIcon={<i className="fa fa-star"></i>}
-                // activeColor="#ffd700"
                 edit={false}
             />
             </h1>

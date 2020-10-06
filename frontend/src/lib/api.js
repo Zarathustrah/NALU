@@ -36,7 +36,6 @@ export const deleteSpotComment = (id, commentId) => {
 }
 // -------------------------------- User Registration  -------------------------------- //
 export const registerUser = formData => {
-  console.log(formData, baseUrl)
   return axios.post(`${baseUrl}/register`, formData)
 }
 export const loginUser = formData => {

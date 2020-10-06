@@ -35,7 +35,6 @@ class SpotMap extends React.Component {
     const { surfPoints, viewport } = this.state
     return (
       <>
-        {/* <h1 className="julien">Fuck off</h1> */}
         <div className="spotMap box">
           <MapGl
             {...viewport}

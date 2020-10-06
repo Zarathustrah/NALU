@@ -20,7 +20,7 @@ class SpotNew extends React.Component {
 handleChange = ( event ) => {
   const formData = { ...this.state.formData, [event.target.name]: event.target.value }
   this.setState({ formData })
-  console.log(this.state)
+
 }
 handleSubmit = async event => {
   event.preventDefault()

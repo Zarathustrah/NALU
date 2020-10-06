@@ -32,7 +32,7 @@ class SpotIndex extends React.Component {
 
   handleSearch = e => {
     this.setState({ [e.target.spots]: e.target.value })
-    // console.log(e.target.spots)
+
   }
 
   filteredSpots = () => {
@@ -42,12 +42,7 @@ class SpotIndex extends React.Component {
       return result.test(spot.country) || result.test(spot.continent) || result.test(spot.spot) || result.test(spot.difficulty) || result.test(spot.season) || result.test(spot.waveType)
     })
   }
-  // function filterCountries() {
-  //   const re = new RegExp(searchTerm, 'i')
-  //   return countries.filter(country => {
-  //     return re.test(country.name) && (country.region === currentRegion || currentRegion === 'All')
-  //   })
-  // }
+
   handleDisplayCard = e => {
     e.preventDefault()
     if (e.currentTarget.name === 'showList') {

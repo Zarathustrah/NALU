@@ -16,7 +16,6 @@ class ProfileForm extends React.Component {
   
   async componentDidMount() {
     const userId = this.props.match.params.id
-    console.log(userId)
     try {
       const res = await registerUser(userId)
       this.setState({ formData: res.formData })
@@ -30,8 +29,6 @@ class ProfileForm extends React.Component {
         <div className="container">
           <Profile
             formData={this.state.formData}
-            // errors={this.state.errors}
-            // handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
             submitText="Submit!"
           />
@@ -42,17 +39,3 @@ class ProfileForm extends React.Component {
 }
 
 export default ProfileForm
-
-
-// let achievedSurfSpot
-// if (profile.achievedSurfSpot) {
-//   if (profile.achievedSurfSpot.length > 0) {
-//     achievedSurfSpot = profile.achievedSurfSpot.map(hike => {
-//       return <ProfileComplete key={hike._id} {...hike} handleClick={this.removeSpot} edit={this.state.edit} />
-//     })
-//   } else {
-//     if (isOwner(this.state.profile._id)) {
-//       achievedSurfSpot = <div>You've not surfed anywhere?</div>
-//     } else { achievedSurfSpot = <div> </div> }
-//   }
-// }

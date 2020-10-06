@@ -32,28 +32,12 @@ class SpotEdit extends React.Component {
   handleChange = event => {
     const formData = { ...this.state.formData, [event.target.name]: event.target.value }
     this.setState({ formData })
-    console.log(formData)
   }
-
-  // handleSubmit = async event => {
-  //   event.preventDefault()
-  //   const spotId = this.props.match.params.id
-  //   try {
-  //     console.log('🚨 I reached that stage 🚨')
-  //     const res = await editSpot(spotId, this.state.formData)
-  //     console.log(res)
-  //     this.props.history.push(`/surfspots/${formData._id}`)
-  //   } catch (err) {
-  //     this.setState({ errors: err.response.data.errors })
-  //   }
-  // }
 
   handleSubmit = async event => {
     event.preventDefault()
     const spotId = this.props.match.params.id
     try {
-      console.log('🚨 I reached that stage 🚨')
-      console.log(this.state.formData) // <-- so we can just view it here
       const res = await editSpot(spotId, this.state.formData) // <-- this doesn't return anything called form data
       console.log(res.data) // <--  lets see the response
       this.props.history.push(`/surfspots/${spotId}`) // <-- you can just use your spot Id here
@@ -63,7 +47,7 @@ class SpotEdit extends React.Component {
   }
 
   render() {
-    console.log(this.state.formData)
+
     return ( 
     <section className="section">
       <div className="container">
