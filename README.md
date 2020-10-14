@@ -9,6 +9,10 @@ Example of adding comments
 
 ## :rocket: Overview
 
+View the app [here](https://naluwave.herokuapp.com/)
+<br />
+<br />
+
 Our product **aims to give users all current information related to the best surfing spots around the world.** The user will have the **ability to search** any surfing spots by location which will display all detailed cards.
 
 The user will have their **own profile where they can add** certain locations where they have surfed. Users can also **comment and rate on each surfspot** on the website as well as **add a location**.
