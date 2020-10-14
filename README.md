@@ -11,19 +11,23 @@ Example of adding comments
 
 Our product **aims to give users all current information related to the best surfing spots around the world.** The user will have the **ability to search** any surfing spots by location which will display all detailed cards.
 
-**This project raised the difficulties to work in a group which immediately allowed us to understand what were the market minimum requirements.** The 3 of us decided to allocate a **meticulous time to prepare** the redistribution of tasks between the client and backend. One of the early difficulty was to **understand how to work with the git branches** in order to prevent conflicting with one and each others work.
+The user will have their **own profile where they can add** certain locations where they have surfed. Users can also **comment and rate on each surfspot** on the website as well as **add a location**.
+
+<img src="https://i.ibb.co/f2TxBFP/Screenshot-2020-10-14-at-09-44-41.png" alt="addnewspotform" width="350"/>
+
+**This project raised the difficulties to work in a group which immediately allowed us to understand what were the market minimum requirements.** We decided to allocate a **meticulous time to prepare** the redistribution of tasks between the client and backend. One of the early difficulty was to **understand how to work with the git branches** in order to prevent conflicting with one and each others work.
 
 <img src="readmeAssets/gitBranches.png" alt="gitBranches" width="350" />
 
 ---
 
-The App is hosted [here](https://naluwave.herokuapp.com/)  
+The App is hosted here  
 Else, kindly clone or fork the repository:  
 To install all the packages listed in the package.json: —> npm i  
 Check the console for any issues and if there are any then check the package.json for any dependancies missing —>  
 Open the frontend code frontend in your terminal  
 Type npm i in your terminal to dl dependencies then npm start  
-Navigate to [http://localhost:7000/](http://localhost:7000/)
+Navigate to [http://localhost:3000/](http://localhost:3000/)
 
 ## :surfer: Contributers
 
@@ -77,6 +81,8 @@ Example of MapBox
 
 ![ternary](readmeAssets/ternaryExample.png)
 Example of ternary conditional rendering
+
+---
 
 ## :trophy: Wins
 
