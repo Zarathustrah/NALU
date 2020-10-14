@@ -69,6 +69,28 @@ Example of adding a new surf spot
 
 ---
 
+## :chart_with_upwards_trend: Process
+
+- As a group we set up our machines and wrote a **table of a basic timeline** with jobs allocated to certain people. We wanted to make it broad and write down the **main functionalities we wanted to complete by certain dates**.
+
+<img src="https://i.ibb.co/RTX36N6/Screenshot-2020-10-14-at-09-49-12.png" alt="timeline" width="500" />
+
+- After that, still in a group, we **sourced information to create our API** on specific surf locations. Once we had this information, we could then create our backend and this would be our **seeds data**.
+
+<img src="https://i.ibb.co/jTpThDC/Screenshot-2020-10-14-at-09-49-50.png" alt="backendAPI" width="500" />
+
+- Once this was completed Julien and Brenda coded the backend, whilst Dan created the basic React pages and Bec was in charge of styling the whole project as well as form validation.
+
+- Julien and Brenda completed the backend by **testing on Insomnia**. This was very useful to visualise what the code was doing and **particulary debugging**.
+
+<img src="https://i.ibb.co/FbYSjZ9/Screenshot-2020-10-14-at-10-20-06.png" alt="example of insomnia test" width="500" />
+
+- Bec did an **incredible job of styling the whole project**, which was a lot of **pressure on her, something of which she took for the whole team**. Bec styled the project all on Bulma and the challenges were to create the styling which wouldn't be overridden by Bulma.
+
+- As well as stlying, Bec also supported Dan with form validation.
+
+- Once the backend was complete, Julien and Brenda pair coded frontend functionalites for example: the list/grid/map view of the surf spots, calling the weather APIs, creating the map and a smaller map for the individual surf spot and functionality to add an achieved surf spot to the users profile.
+
 ## :mag: Features
 
 - We were really excited to **implement MapBox** within our project as it was the perfect fit with our idea.
