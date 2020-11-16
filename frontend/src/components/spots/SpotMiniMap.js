@@ -5,6 +5,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 class SpotMiniMap extends React.Component {
   render() {
     const spot = this.props.spot
+    console.log('adam', process.env)
     return (
       <div className="spot-show-minimap">
         <MapGL

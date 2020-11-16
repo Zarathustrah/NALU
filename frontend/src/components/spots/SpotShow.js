@@ -4,6 +4,7 @@ import SpotMiniMap from './SpotMiniMap'
 import SpotComments from './SpotComments'
 import { showSingleSpot, deleteSpot, commentSpot, deleteSpotComment, getUser, getLocalWeatherStatus, getMarineWeatherStatus } from '../../lib/api'
 import { isAuthenticated, isOwner, getUserId } from '../../lib/auth'
+
 class SpotShow extends React.Component {
   state = {
     spot: null,
